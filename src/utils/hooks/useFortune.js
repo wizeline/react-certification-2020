@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { random } from '../fns';
+import { random } from "../fns";
 
-const API_URL = 'http://fortunecookieapi.herokuapp.com/v1/fortunes?limit=10';
+const API_URL = "http://fortunecookieapi.herokuapp.com/v1/fortunes?limit=10";
 
 function useFortune() {
   const [fortune, setFortune] = useState(null);
@@ -18,7 +18,7 @@ function useFortune() {
 
         setFortune(currentFortune.message);
       } catch (error) {
-        console.error('Bad fortune: ', error);
+        console.error("Bad fortune: ", error);
       }
     }
 

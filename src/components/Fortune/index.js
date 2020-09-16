@@ -1,1 +1,1 @@
-export { default } from './Fortune.component';
+export { default } from "./Fortune.component";

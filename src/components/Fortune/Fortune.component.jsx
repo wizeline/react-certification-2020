@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { useFortune } from '../../utils/hooks/useFortune';
-import './Fortune.styles.css';
+import { useFortune } from "../../utils/hooks/useFortune";
+import "./Fortune.styles.css";
 
 function Fortune() {
   const { fortune } = useFortune();

@@ -1,8 +1,8 @@
-import React from 'react';
-import { useHistory } from 'react-router';
+import React from "react";
+import { useHistory } from "react-router";
 
-import { useAuth } from '../../providers/Auth';
-import './Login.styles.css';
+import { useAuth } from "../../providers/Auth";
+import "./Login.styles.css";
 
 function LoginPage() {
   const { login } = useAuth();
@@ -11,7 +11,7 @@ function LoginPage() {
   function authenticate(event) {
     event.preventDefault();
     login();
-    history.push('/secret');
+    history.push("/secret");
   }
 
   return (
