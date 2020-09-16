@@ -5,9 +5,4 @@ import App from "./components/App";
 import "semantic-ui-css/semantic.min.css";
 import "./global.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById("root"));
