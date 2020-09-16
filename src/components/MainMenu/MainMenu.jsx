@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Dropdown, Search } from "semantic-ui-react";
 import "./MainMenu.scss";
 
@@ -8,7 +9,9 @@ const MainMenu = () => {
       <div className="menu-options">
         <Dropdown item icon="bars" simple>
           <Dropdown.Menu>
-            <Dropdown.Item>Home</Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/">Home</Link>
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -18,7 +21,9 @@ const MainMenu = () => {
       <div className="user-menu">
         <Dropdown item icon="user" simple>
           <Dropdown.Menu>
-            <Dropdown.Item>Login</Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/login">let me in</Link>
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
