@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, Search } from "semantic-ui-react";
+import { Dropdown, Icon, Search } from "semantic-ui-react";
 import "./MainMenu.scss";
 
 const MainMenu = () => {
@@ -19,13 +19,9 @@ const MainMenu = () => {
         <Search />
       </div>
       <div className="user-menu">
-        <Dropdown item icon="user" simple>
-          <Dropdown.Menu>
-            <Dropdown.Item>
-              <Link to="/login">let me in</Link>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Link to="/login">
+          <Icon name="user" />
+        </Link>
       </div>
     </div>
   );
