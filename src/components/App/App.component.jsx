@@ -9,7 +9,6 @@ import SecretPage from "../../pages/Secret";
 import Private from "../Private";
 import Fortune from "../Fortune";
 import Layout from "../Layout";
-import MainMenu from "../MainMenu";
 import { random } from "../../utils/fns";
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <MainMenu />
         <Layout>
           <Switch>
             <Route exact path="/">
