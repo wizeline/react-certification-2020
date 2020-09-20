@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, Icon, Search } from "semantic-ui-react";
+import { Button, Dropdown, Icon, Search } from "semantic-ui-react";
+
 import "./MainMenu.scss";
 
-const MainMenu = () => {
+const MainMenu = ({ onSetMode }) => {
   return (
     <div className="component__main-menu">
       <div className="menu-options">
@@ -17,6 +18,20 @@ const MainMenu = () => {
       </div>
       <div className="search">
         <Search />
+      </div>
+      <div className="theme-options">
+        <Button.Group>
+          <Button
+            icon="sun"
+            content="Light mode"
+            onClick={() => onSetMode("light")}
+          />
+          <Button
+            icon="moon"
+            content="Dark mode"
+            onClick={() => onSetMode("dark")}
+          />
+        </Button.Group>
       </div>
       <div className="user-menu">
         <Link to="/login">
