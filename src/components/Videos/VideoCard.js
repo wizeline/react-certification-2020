@@ -7,6 +7,8 @@ const VideoCardHeader = styled.header`
     font-size: 14px;
     margin: 0 0 1rem;
     color: #7a7a8c;
+    max-height: 100px;
+    overflow: hidden;
   }
 
   & h2 {
@@ -35,56 +37,23 @@ const VideoCard = styled.article`
   height: 350px;
   width: 400px;
   min-width: 250px;
-  padding: 1.5rem;
-
+  padding: 0.5rem;
+  margin: 2rem;
   border-radius: 16px;
   background: #17141d;
   box-shadow: -1rem 0 3rem #000;
-
-  transition: 0.2s;
-
-  &:hover {
-    transform: translateY(-1rem);
-  }
-
-  &:hover ~ & {
-    transform: translateX(150px);
-  }
-
-  &:not(:first-child) {
-    margin-left: -130px;
-  }
 `;
 
 const VideoCardList = styled.section`
   display: flex;
-  padding: 3rem;
-  overflow-x: scroll;
-
-  &::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #201c29;
-    border-radius: 10px;
-    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
-      inset -2px -2px 2px rgba(0, 0, 0, 0.25);
-  }
-
-  &::-webkit-scrollbar-track {
-    background: linear-gradient(
-      90deg,
-      #201c29,
-      #201c29 1px,
-      #17141d 0,
-      #17141d
-    );
-  }
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem;
 `;
 
 const VideoCardAuthor = styled.div`
   font-size: 32px;
 `;
 
-export default { VideoCard, VideoCardHeader, VideoCardList, VideoCardAuthor };
+export { VideoCard, VideoCardHeader, VideoCardList, VideoCardAuthor };

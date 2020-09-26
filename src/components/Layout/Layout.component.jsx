@@ -12,7 +12,7 @@ const commontheme = {
 const lightTheme = {
   ...commontheme,
   bg: "#fff",
-  text: "#121212",
+  text: "#aaa",
 };
 
 const darkTheme = {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { useYouTubeAPI } from "../../utils/hooks/useYouTube";
 
-import Video from "../Video";
+import { VideoCard, VideoCardHeader, VideoCardList } from "./VideoCard";
 
 import "./Videos.styles.scss";
 
@@ -11,14 +11,18 @@ const Videos = () => {
 
   return (
     <div className="component__videos">
-      {videos &&
-        videos.items.map((item) => (
-          <Video
-            key={item.id}
-            title={item.snippet.title}
-            description={item.snippet.description}
-          />
-        ))}
+      <VideoCardList>
+        {videos &&
+          videos.items.map((item) => (
+            <VideoCard>
+              <img src={item.snippet.thumbnails.medium.url} alt="imagedw" />
+              <VideoCardHeader>
+                <h2>{item.snippet.title}</h2>
+                <p>{item.snippet.description}</p>
+              </VideoCardHeader>
+            </VideoCard>
+          ))}
+      </VideoCardList>
     </div>
   );
 };
