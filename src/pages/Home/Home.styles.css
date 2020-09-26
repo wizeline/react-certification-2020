@@ -6,3 +6,23 @@
   font-size: 3rem;
   letter-spacing: -2px;
 }
+
+.navbar {
+  background-color: rosybrown;
+  height: 70px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar h2 {
+  color: papayawhip;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar .search-input {
+  background-color: papayawhip;
+  border-radius: 20px;
+  height: 70%;
+}
