@@ -1,15 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useYouTubeAPI } from "../../utils/hooks/useYouTube";
-
 import { VideoCard, VideoCardHeader, VideoCardList } from "./VideoCard";
 
 import "./Videos.styles.scss";
 
-const Videos = ({ onSetActiveVideo, searchQuery }) => {
-  const { videos } = useYouTubeAPI(searchQuery);
-
+const Videos = ({ onSetActiveVideo, videos }) => {
   return (
     <div className="component__videos">
       <VideoCardList>

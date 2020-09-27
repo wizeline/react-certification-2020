@@ -26,7 +26,7 @@ const MainMenu = ({ queryString, onSearch, onSetMode }) => {
             </Dropdown.Item>
             {authenticated && (
               <Dropdown.Item>
-                <Link to="/secret">Secret</Link>
+                <Link to="/favorites">Favorites</Link>
               </Dropdown.Item>
             )}
           </Dropdown.Menu>

@@ -6,7 +6,7 @@ import HomePage from "../../pages/Home";
 import LoginPage from "../../pages/Login";
 import Video from "../../pages/Video";
 import NotFound from "../../pages/NotFound";
-import SecretPage from "../../pages/Secret";
+import Favorites from "../../pages/Favorites";
 import Private from "../Private";
 import Fortune from "../Fortune";
 import Layout from "../Layout";
@@ -46,8 +46,8 @@ const App = () => {
             <Route path="/videos/:id">
               <Video video={activeVideo} />
             </Route>
-            <Private exact path="/secret">
-              <SecretPage />
+            <Private exact path="/favorites">
+              <Favorites />
             </Private>
             <Route path="*">
               <NotFound />
