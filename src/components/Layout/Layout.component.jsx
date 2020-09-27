@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import MainMenu from "../MainMenu";
@@ -31,18 +31,42 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function Layout({ children }) {
+const QueryContext = React.createContext([{}, () => {}]);
+
+export const useQueryContext = () => {
+  const context = useContext(QueryContext);
+
+  if (!context) {
+    throw new Error("useQueryContext is not present");
+  }
+
+  return context;
+};
+
+const Layout = ({ children }) => {
   const [mode, setMode] = useState("light");
+  const [queryString, setQueryString] = useState("Wizeline");
+
+  const contextValue = useMemo(() => ({ queryString, setQueryString }), [
+    queryString,
+    setQueryString,
+  ]);
 
   return (
     <ThemeProvider theme={mode === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <div>
-        <MainMenu onSetMode={(theme) => setMode(theme)} />
-        <main className="container">{children}</main>);
+        <MainMenu
+          onSetMode={(theme) => setMode(theme)}
+          queryString={queryString}
+          onSearch={(qs) => setQueryString(qs)}
+        />
+        <QueryContext.Provider value={contextValue}>
+          <main className="container">{children}</main>);
+        </QueryContext.Provider>
       </div>
     </ThemeProvider>
   );
-}
+};
 
 export default Layout;

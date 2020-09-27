@@ -6,8 +6,8 @@ import { VideoCard, VideoCardHeader, VideoCardList } from "./VideoCard";
 
 import "./Videos.styles.scss";
 
-const Videos = () => {
-  const { videos } = useYouTubeAPI();
+const Videos = ({ searchQuery }) => {
+  const { videos } = useYouTubeAPI(searchQuery);
 
   return (
     <div className="component__videos">

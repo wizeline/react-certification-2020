@@ -2,21 +2,22 @@ import { useState, useEffect } from "react";
 
 import youtube from "../../apis/youtube";
 
-const useYouTubeAPI = () => {
+const useYouTubeAPI = (searchQuery) => {
   const [videos, setVideos] = useState([]);
 
-  useEffect((querys) => {
-    const fetchVideos = async (qs = "Wizeline") => {
+  useEffect(() => {
+    const fetchVideos = async () => {
       const response = await youtube.get("/search", {
         params: {
-          q: qs,
+          q: searchQuery,
         },
       });
       setVideos(response.data);
       console.log(response);
     };
-    fetchVideos(querys);
-  }, []);
+    console.log({ searchQuery });
+    fetchVideos();
+  }, [searchQuery]);
 
   return { videos };
 };
