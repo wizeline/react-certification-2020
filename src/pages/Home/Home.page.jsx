@@ -5,16 +5,16 @@ import Videos from "../../components/Videos";
 
 import "./Home.styles.css";
 
-function HomePage() {
+const HomePage = ({ onSetActiveVideo }) => {
   const sectionRef = useRef(null);
   const { queryString } = useQueryContext();
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <Videos searchQuery={queryString} />
+      <Videos searchQuery={queryString} onSetActiveVideo={onSetActiveVideo} />
       {console.log({ queryString })}
     </section>
   );
-}
+};
 
 export default HomePage;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { useYouTubeAPI } from "../../utils/hooks/useYouTube";
 
@@ -6,7 +7,7 @@ import { VideoCard, VideoCardHeader, VideoCardList } from "./VideoCard";
 
 import "./Videos.styles.scss";
 
-const Videos = ({ searchQuery }) => {
+const Videos = ({ onSetActiveVideo, searchQuery }) => {
   const { videos } = useYouTubeAPI(searchQuery);
 
   return (
@@ -15,13 +16,21 @@ const Videos = ({ searchQuery }) => {
         {videos &&
           videos.items &&
           videos.items.map((item) => (
-            <VideoCard>
-              <img src={item.snippet.thumbnails.medium.url} alt="imagedw" />
-              <VideoCardHeader>
-                <h2>{item.snippet.title}</h2>
-                <p>{item.snippet.description}</p>
-              </VideoCardHeader>
-            </VideoCard>
+            <Link
+              to={`/videos/${item.id.videoId}`}
+              onClick={() => onSetActiveVideo(item)}
+            >
+              <VideoCard>
+                <img
+                  src={item.snippet.thumbnails.medium.url}
+                  alt={item.snippet.title}
+                />
+                <VideoCardHeader>
+                  <h2>{item.snippet.title}</h2>
+                  <p>{item.snippet.description}</p>
+                </VideoCardHeader>
+              </VideoCard>
+            </Link>
           ))}
       </VideoCardList>
     </div>
