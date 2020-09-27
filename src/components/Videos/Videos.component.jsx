@@ -13,6 +13,7 @@ const Videos = () => {
     <div className="component__videos">
       <VideoCardList>
         {videos &&
+          videos.items &&
           videos.items.map((item) => (
             <VideoCard>
               <img src={item.snippet.thumbnails.medium.url} alt="imagedw" />
