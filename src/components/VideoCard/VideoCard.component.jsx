@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import EmployeeContext from '../../store/VideoContext';
 
-function VideoCard() {
+function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
+  const { dispatch } = useContext(EmployeeContext);
+
+  const handleVideoClick = () => {
+    dispatch({
+      type: 'SET_CURRENT_VIDEO',
+      payload: {
+        videoId,
+        videoTitle,
+        videoDescription,
+        videoThumbnail,
+      },
+    });
+  };
+
   return (
-    <section className="video-section">
-      <div className="video-thumbnail"> </div>
-      <div className="video_title"> </div>
-      <div className="video-description"> </div>
-    </section>
+    <Link to="/detail" onClick={handleVideoClick}>
+      <section className="video-section" key={videoId}>
+        <div className="video-title">{videoTitle}</div>
+        <div className="video-description">{videoDescription}</div>
+        <img className="video-thumbnail" src={videoThumbnail} alt={videoTitle} />
+      </section>
+    </Link>
   );
 }
 
