@@ -8,7 +8,6 @@ import Video from "../../pages/Video";
 import NotFound from "../../pages/NotFound";
 import Favorites from "../../pages/Favorites";
 import Private from "../Private";
-import Fortune from "../Fortune";
 import Layout from "../Layout";
 
 const App = () => {
@@ -35,7 +34,6 @@ const App = () => {
               <NotFound />
             </Route>
           </Switch>
-          <Fortune />
         </Layout>
       </AuthProvider>
     </BrowserRouter>
