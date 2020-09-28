@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 import VideoDetail from "../../components/VideoDetail";
 
@@ -10,6 +11,7 @@ const Video = ({ video }) => {
       <VideoDetail id={id} video={video} />
       {console.log({ id })}
       {console.log({ video })}
+      <Link to="/"> ← go back</Link>
     </section>
   );
 };
