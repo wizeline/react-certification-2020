@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
           onSearch={(qs) => setQueryString(qs)}
         />
         <QueryContext.Provider value={contextValue}>
-          <main className="container">{children}</main>);
+          <main className="container">{children}</main>
         </QueryContext.Provider>
       </div>
     </ThemeProvider>
