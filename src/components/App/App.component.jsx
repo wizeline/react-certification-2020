@@ -47,7 +47,7 @@ const App = () => {
               <Video video={activeVideo} />
             </Route>
             <Private exact path="/favorites">
-              <Favorites />
+              <Favorites onSetActiveVideo={(video) => setActiveVideo(video)} />
             </Private>
             <Route path="*">
               <NotFound />
