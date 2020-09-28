@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import EmployeeContext from '../../store/VideoContext';
+import './VideoCard.styles.css';
+import likeIcon from '../../assets/like.svg';
 
 function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
   const { dispatch } = useContext(EmployeeContext);
@@ -17,13 +19,28 @@ function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
     });
   };
 
+  const handleLike = () => {
+    dispatch({
+      type: 'ADD_FAVORITE_VIDEO',
+      payload: {
+        videoId,
+        videoTitle,
+        videoDescription,
+        videoThumbnail,
+      },
+    });
+  };
+
   return (
     <Link to="/detail" onClick={handleVideoClick}>
-      <section className="video-section" key={videoId}>
-        <div className="video-title">{videoTitle}</div>
-        <div className="video-description">{videoDescription}</div>
-        <img className="video-thumbnail" src={videoThumbnail} alt={videoTitle} />
-      </section>
+      <div className="video-section" key={videoId}>
+        <div className="image-wrapper">
+          <img className="video-thumbnail" src={videoThumbnail} alt={videoTitle} />
+        </div>
+        <input className="like-icon" src={likeIcon} type="button" onClick={handleLike} />
+        <h2 className="video-title">{videoTitle}</h2>
+        <p className="video-description">{videoDescription}</p>
+      </div>
     </Link>
   );
 }

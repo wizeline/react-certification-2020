@@ -1,8 +1,9 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
+import './VideoCardPanel.styles.css';
 
 function VideoCardPanel({ videos }) {
-  const getVideoThumbnail = (video) => video.snippet.thumbnails.default.url;
+  const getVideoThumbnail = (video) => video.snippet.thumbnails.medium.url;
   const getVideoTitle = (video) => video.snippet.title;
   const getVideoDescription = (video) => video.snippet.description;
 
