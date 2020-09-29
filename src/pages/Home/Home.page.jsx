@@ -1,39 +1,22 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useRef } from "react";
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import { useYouTubeAPI } from "../../utils/hooks/useYouTube";
+import { useQueryContext } from "../../components/Layout";
+import Videos from "../../components/Videos";
 
-function HomePage() {
-  const history = useHistory();
+import "./Home.styles.css";
+
+const HomePage = ({ onSetActiveVideo }) => {
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  const { queryString } = useQueryContext();
+  const { videos } = useYouTubeAPI(queryString);
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
+      <Videos onSetActiveVideo={onSetActiveVideo} videos={videos} />
+      {console.log({ queryString })}
     </section>
   );
-}
+};
 
 export default HomePage;

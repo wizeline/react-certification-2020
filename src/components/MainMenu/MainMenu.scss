@@ -1,0 +1,13 @@
+.component__main-menu {
+  display: flex;
+  padding: 10px;
+
+  .menu-options {
+    padding: 10px;
+  }
+
+  .user-menu {
+    padding: 10px;
+    margin-left: auto !important;
+  }
+}
