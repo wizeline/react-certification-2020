@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
 
 // import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
 import VideoCardPanel from '../../components/VideoCardPanel';
 
 function HomePage({ inputState }) {
