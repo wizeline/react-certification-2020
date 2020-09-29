@@ -20,28 +20,28 @@ const VideoCardHeader = styled.header`
     display: inline-block;
     cursor: pointer;
   }
-
-  & h2:hover {
-    background: linear-gradient(90deg, #ff8a00, #e52e71);
-    text-shadow: none;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
 `;
 
 const VideoCard = styled.article`
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 350px;
-  width: 400px;
+  height: 400px;
+  width: 350px;
   min-width: 250px;
   padding: 0.5rem;
-  margin: 2rem;
+  margin: 1rem;
   border-radius: 16px;
-  background: #17141d;
-  box-shadow: -1rem 0 3rem #000;
+  background: #eeecf3;
+  box-shadow: -1rem 0 2rem #121212;
+
+  & img {
+    border: 1px solid #aaa;
+  }
+
+  :hover {
+    background: #eee;
+  }
 `;
 
 const VideoCardList = styled.section`

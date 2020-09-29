@@ -11,13 +11,19 @@ const commontheme = {
 
 const lightTheme = {
   ...commontheme,
-  bg: "#fff",
+  bg: "#e3dae7",
+  hover: "#d3b3b8",
+  link: "#714d69",
+  menuBg: "#a0849d",
   text: "#aaa",
 };
 
 const darkTheme = {
   ...commontheme,
-  bg: "#121212",
+  bg: "#43b5a0",
+  hover: "#fa448c",
+  link: "#491d88",
+  menuBg: "#fec859",
   text: "#fff",
 };
 
@@ -26,8 +32,18 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fontFam};
     color: ${(props) => props.theme.text};
     background-color: ${(props) => props.theme.bg};
+    
+    a {
+      color: ${(props) => props.theme.link};
+    }
 
-    transition: 0.5s;
+    a:hover {
+      color: ${(props) => props.theme.hover};
+    }
+
+    .component__main-menu {
+      background-color: ${(props) => props.theme.menuBg}
+    }
   }
 `;
 
