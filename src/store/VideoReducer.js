@@ -3,21 +3,25 @@ const VideoReducer = (state, action) => {
     case 'SET_CURRENT_VIDEO':
       return { ...state, currentVideo: action.payload };
     case 'ADD_FAVORITE_VIDEO': {
+      const videoExists = () => {
+        return state.favoriteVideos.find((video) => {
+          return action.payload.videoId === video.videoId;
+        });
+      };
+      const videosIsNotEmpty = () => state.favoriteVideos.length !== 0;
+      if (videosIsNotEmpty() && videoExists()) {
+        return {
+          ...state,
+          favoriteVideos: state.favoriteVideos,
+        };
+      }
       localStorage.setItem(
         'videos',
         JSON.stringify(state.favoriteVideos.concat(action.payload))
       );
-      const videoExists = () =>
-        state.favoriteVideos.find((video) => {
-          return action.payload.videoId === video.videoId;
-        });
-      const newVideos = () =>
-        videoExists()
-          ? state.favoriteVideos
-          : state.favoriteVideos.concat(action.payload);
       return {
         ...state,
-        favoriteVideos: newVideos(),
+        favoriteVideos: state.favoriteVideos.concat(action.payload),
       };
     }
     case 'LOAD_FROM_STORAGE': {
