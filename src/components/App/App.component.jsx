@@ -18,6 +18,11 @@ import { random } from '../../utils/fns';
 function App() {
   const [state, dispatch] = useReducer(VideoReducer, {
     currentVideo: {},
+    favoriteVideos: [],
+    videos: [],
+    setCurrentVideo: () => {},
+    addFavoritevideo: () => {},
+    loadFromStorage: () => {},
   });
   useLayoutEffect(() => {
     const { body } = document;

@@ -5,6 +5,8 @@ const VideoContext = React.createContext({
   currentVideo: {},
   setCurrentVideo: () => {},
   favoriteVideos: [],
+  addFavoritevideo: () => {},
+  loadFromStorage: () => {},
 });
 
 export default VideoContext;

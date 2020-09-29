@@ -3,9 +3,9 @@ import VideoCard from '../VideoCard';
 import './VideoCardPanel.styles.css';
 
 function VideoCardPanel({ videos }) {
-  const getVideoThumbnail = (video) => video.snippet.thumbnails.medium.url;
-  const getVideoTitle = (video) => video.snippet.title;
-  const getVideoDescription = (video) => video.snippet.description;
+  const getVideoThumbnail = (video) => video.snippet ? video.snippet.thumbnails.medium.url : video.videoThumbnail;
+  const getVideoTitle = (video) => video.snippet ? video.snippet.title: video.videoTitle;
+  const getVideoDescription = (video) => video.snippet ? video.snippet.description: video.videoDescription;
 
   return (
     <div className="video-card-wrapper">

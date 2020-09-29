@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import EmployeeContext from '../../store/VideoContext';
+import VideoContext from '../../store/VideoContext';
 import './VideoCard.styles.css';
 import likeIcon from '../../assets/like.svg';
 
 function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
-  const { dispatch } = useContext(EmployeeContext);
+  const { dispatch } = useContext(VideoContext);
 
   const handleVideoClick = () => {
     dispatch({
@@ -19,7 +19,8 @@ function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
     });
   };
 
-  const handleLike = () => {
+  const handleLike = (event) => {
+    event.preventDefault();
     dispatch({
       type: 'ADD_FAVORITE_VIDEO',
       payload: {
