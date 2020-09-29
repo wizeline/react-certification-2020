@@ -1,6 +1,5 @@
-import React, { useLayoutEffect, useReducer } from 'react';
+import React, { useLayoutEffect, useReducer, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import { slide as Menu } from 'react-burger-menu';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
@@ -12,10 +11,13 @@ import FavoriteVideos from '../../pages/FavoriteVideos';
 // import Layout from '../Layout';
 import VideoReducer from '../../store/VideoReducer';
 import VideoContext from '../../store/VideoContext';
+import Navbar from '../../components/Navbar';
 
 import { random } from '../../utils/fns';
 
 function App() {
+  const [inputState, setInputState] = useState();
+
   const [state, dispatch] = useReducer(VideoReducer, {
     currentVideo: {},
     favoriteVideos: [],
@@ -46,9 +48,10 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <VideoContext.Provider value={{ state, dispatch }}>
+          <Navbar setInputState={setInputState} />
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <HomePage inputState={inputState} />
             </Route>
             <Route exact path="/login">
               <LoginPage />

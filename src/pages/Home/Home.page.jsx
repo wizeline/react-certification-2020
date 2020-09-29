@@ -10,7 +10,6 @@ function HomePage() {
   const json = require('../../utils/mockData.json');
   // const history = useHistory();
   // const { authenticated, logout } = useAuth();
-  const [inputState, setInputState] = useState();
   const [videos, setVideos] = useState([]);
 
   // const API_KEY = 'AIzaSyC3Ha2WRItz9dOoJ0ZjeksOHvKOsdWDgn0';
@@ -21,13 +20,6 @@ function HomePage() {
   //   logout();
   //   history.push('/');
   // }
-
-  const handleInput = (event) => {
-    event.persist();
-    if (event) {
-      setInputState(event.target.value);
-    }
-  };
 
   useEffect(() => {
     setVideos(json.items);
@@ -47,11 +39,7 @@ function HomePage() {
 
   return (
     <section className="homepage-wrapper">
-      <section className="navbar">
-        <input className="search-input" type="text" onChange={handleInput} />
-        <button type="button">{inputState}</button>
-        <h2>Search bar</h2>
-      </section>
+      {/* <Navbar inputState={inputState} setInputState={setInputState} /> */}
       {videos && <VideoCardPanel videos={videos} />}
     </section>
   );
