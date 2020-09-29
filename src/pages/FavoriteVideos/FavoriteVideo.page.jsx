@@ -8,6 +8,7 @@ function FavoriteVideoPage() {
     dispatch({
       type: 'LOAD_FROM_STORAGE',
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
