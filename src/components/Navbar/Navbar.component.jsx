@@ -13,9 +13,15 @@ function Navbar({ setInputState }) {
   return (
     <section className="navbar">
       <Menu>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="favorites" className="menu-item" href="/favorites">Favorites</a>
-        <a id="logout" className="menu-item" href="/login">Logout</a>
+        <a id="home" className="menu-item" href="/">
+          Home
+        </a>
+        <a id="favorites" className="menu-item" href="/favorites">
+          Favorites
+        </a>
+        <a id="logout" className="menu-item" href="/login">
+          Logout
+        </a>
         {/* <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a> */}
       </Menu>
       <input className="search-input" type="text" onChange={handleInput} />

@@ -11,7 +11,7 @@ import FavoriteVideos from '../../pages/FavoriteVideos';
 // import Layout from '../Layout';
 import VideoReducer from '../../store/VideoReducer';
 import VideoContext from '../../store/VideoContext';
-import Navbar from '../../components/Navbar';
+import Navbar from '../Navbar';
 
 import { random } from '../../utils/fns';
 

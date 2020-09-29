@@ -12,7 +12,7 @@ function HomePage() {
   // const { authenticated, logout } = useAuth();
   const [videos, setVideos] = useState([]);
 
-  // const API_KEY = 'AIzaSyC3Ha2WRItz9dOoJ0ZjeksOHvKOsdWDgn0';
+  // const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
   // const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${inputState}&key=${API_KEY}`;
 
   // function deAuthenticate(event) {
