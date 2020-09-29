@@ -13,15 +13,27 @@ const VideoDetail = ({ video }) => {
 
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
-  const onAddFavorites = () => {
+  const getFavorites = () => {
     const lastFavorites = storage.get(FAVORITES_KEY) || "[]";
-    const favorites = JSON.parse(lastFavorites);
+    return JSON.parse(lastFavorites);
+  };
+
+  const onAddFavorites = () => {
+    const favorites = getFavorites();
     favorites.push(video);
     const newFavorites = favorites.filter(
       (favorite, index, self) =>
         index === self.findIndex((f) => f.id.videoId === favorite.id.videoId)
     );
     storage.set(FAVORITES_KEY, JSON.stringify(newFavorites));
+  };
+
+  const isFavorite = () => {
+    const favorites = getFavorites();
+    const favoriteVideo = favorites.filter(
+      (favorite) => favorite.id.videoId === video.id.videoId
+    );
+    return favoriteVideo;
   };
 
   return (
@@ -40,11 +52,14 @@ const VideoDetail = ({ video }) => {
           <p>{video.snippet.description}</p>
         </div>
         <div className="favorites">
-          {authenticated && (
-            <button type="submit" onClick={onAddFavorites}>
-              Add to favorites
-            </button>
-          )}
+          {authenticated &&
+            (isFavorite().length > 0 ? (
+              <p>Video is on Favorites</p>
+            ) : (
+              <button type="submit" onClick={() => onAddFavorites()}>
+                Add to favorites
+              </button>
+            ))}
         </div>
       </div>
     </div>
