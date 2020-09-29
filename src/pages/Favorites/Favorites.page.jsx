@@ -10,10 +10,16 @@ const Favorites = ({ onSetActiveVideo }) => {
 
   return (
     <section className="favorites">
-      <Videos
-        onSetActiveVideo={onSetActiveVideo}
-        videos={{ items: favorites }}
-      />
+      {favorites.length > 0 ? (
+        <Videos
+          onSetActiveVideo={onSetActiveVideo}
+          videos={{ items: favorites }}
+        />
+      ) : (
+        <div className="empty-favorites">
+          <p>There is no favorite videos yet</p>
+        </div>
+      )}
     </section>
   );
 };
