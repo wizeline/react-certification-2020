@@ -4,9 +4,9 @@ import { slide as Menu } from 'react-burger-menu';
 import { useAuth } from '../../providers/Auth';
 import { MenuStyles, NavbarWrapper } from './NavbarStyles';
 
-const home = "/";
-const favorites = "/favorites";
-const login = "/login";
+const home = '/';
+const favorites = '/favorites';
+const login = '/login';
 
 function Navbar({ setInputState }) {
   const handleInput = (event) => {
