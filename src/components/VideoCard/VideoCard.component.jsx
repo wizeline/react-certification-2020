@@ -34,9 +34,9 @@ function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
 
   return (
     <Link to="/detail" onClick={handleVideoClick}>
-      <VideoCardWrapper key={videoId}>
+      <VideoCardWrapper key={videoId} data-testid="video-card">
         <div className="image-wrapper">
-          <img className="video-thumbnail" src={videoThumbnail} alt={videoTitle} />
+          <img className="video-thumbnail" src={videoThumbnail} data-testid="image" alt={videoTitle} />
         </div>
         <input className="like-icon" src={likeIcon} type="button" onClick={handleLike} />
         <h2 className="video-title">{videoTitle}</h2>

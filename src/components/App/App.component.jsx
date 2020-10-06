@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
-import NotFound from '../../pages/NotFound';
 import VideoDetail from '../../pages/VideoDetail';
 import FavoriteVideos from '../../pages/FavoriteVideos';
 // import Private from '../Private';
@@ -63,9 +62,6 @@ function App() {
             <Private exact path="/favorites">
               <FavoriteVideos />
             </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
           </Switch>
         </VideoContext.Provider>
       </BrowserRouter>

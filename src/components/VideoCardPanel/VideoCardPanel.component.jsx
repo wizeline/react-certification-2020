@@ -9,11 +9,11 @@ function VideoCardPanel({ videos }) {
     video.snippet ? video.snippet.title : video.videoTitle;
   const getVideoDescription = (video) =>
     video.snippet ? video.snippet.description : video.videoDescription;
-
   return (
     <VideoCardPanelWrapper>
       {videos.map((video) => (
         <VideoCard
+          key={video.etag}
           videoId={video.etag}
           videoThumbnail={getVideoThumbnail(video)}
           videoTitle={getVideoTitle(video)}

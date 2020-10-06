@@ -13,19 +13,22 @@ const VideoDetailWrapper = styled.div`
     font-weight: bold;
     margin: 0;
   }
-  h1, h2 {
+  h1,
+  h2 {
     width: 70%;
   }
 `;
 
 function VideoDetailCard() {
-  const { state } = useContext(VideoContext);
-  console.log(state);
+  const { currentVideo } = useContext(VideoContext);
   return (
     <VideoDetailWrapper>
-      <iframe src={`https://www.youtube.com/embed/${state.currentVideo.videoId}`} title={state.currentVideo.videoTitle} />
-      <h1>{state.currentVideo.videoTitle}</h1>
-      <h2>{state.currentVideo.videoDescription}</h2>
+      <iframe
+        src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
+        title={currentVideo.videoTitle}
+      />
+      <h1>{currentVideo.videoTitle}</h1>
+      <h2>{currentVideo.videoDescription}</h2>
     </VideoDetailWrapper>
   );
 }
