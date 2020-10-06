@@ -12,6 +12,7 @@ import FavoriteVideos from '../../pages/FavoriteVideos';
 import VideoReducer from '../../store/VideoReducer';
 import VideoContext from '../../store/VideoContext';
 import Navbar from '../Navbar';
+import Private from '../Private';
 
 import { random } from '../../utils/fns';
 
@@ -45,8 +46,8 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
         <VideoContext.Provider value={{ state, dispatch }}>
           <Navbar setInputState={setInputState} />
           <Switch>
@@ -59,16 +60,16 @@ function App() {
             <Route exact path="/detail">
               <VideoDetail />
             </Route>
-            <Route exact path="/favorites">
+            <Private exact path="/favorites">
               <FavoriteVideos />
-            </Route>
+            </Private>
             <Route path="*">
               <NotFound />
             </Route>
           </Switch>
         </VideoContext.Provider>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

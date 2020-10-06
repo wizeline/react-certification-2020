@@ -1,6 +1,6 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
-import './VideoCardPanel.styles.css';
+import { VideoCardPanelWrapper } from './VideoCardPanelStyles';
 
 function VideoCardPanel({ videos }) {
   const getVideoThumbnail = (video) =>
@@ -11,7 +11,7 @@ function VideoCardPanel({ videos }) {
     video.snippet ? video.snippet.description : video.videoDescription;
 
   return (
-    <div className="video-card-wrapper">
+    <VideoCardPanelWrapper>
       {videos.map((video) => (
         <VideoCard
           videoId={video.etag}
@@ -20,7 +20,7 @@ function VideoCardPanel({ videos }) {
           videoDescription={getVideoDescription(video)}
         />
       ))}
-    </div>
+    </VideoCardPanelWrapper>
   );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import './Navbar.styles.css';
+import { useAuth } from '../../providers/Auth';
+import { MenuStyles, NavbarWrapper } from './NavbarStyles';
 
 function Navbar({ setInputState }) {
   const handleInput = (event) => {
@@ -10,22 +11,25 @@ function Navbar({ setInputState }) {
     }
   };
 
+  const { logout } = useAuth();
+
   return (
-    <section className="navbar">
-      <Menu>
-        <a id="home" className="menu-item" href="/">
-          Home
-        </a>
-        <a id="favorites" className="menu-item" href="/favorites">
-          Favorites
-        </a>
-        <a id="logout" className="menu-item" href="/login">
-          Logout
-        </a>
-        {/* <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a> */}
-      </Menu>
+    <NavbarWrapper>
+      <MenuStyles>
+        <Menu>
+          <a id="home" className="menu-item" href="/">
+            Home
+          </a>
+          <a id="favorites" className="menu-item" href="/favorites">
+            Favorites
+          </a>
+          <a id="logout" className="menu-item" href="/login" onClick={logout}>
+            Logout
+          </a>
+        </Menu>
+      </MenuStyles>
       <input className="search-input" type="text" onChange={handleInput} />
-    </section>
+    </NavbarWrapper>
   );
 }
 

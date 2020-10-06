@@ -7,7 +7,7 @@ function Private({ children, ...rest }) {
   const { authenticated } = useAuth();
 
   return (
-    <Route {...rest} render={() => (authenticated ? children : <Redirect to="/" />)} />
+    <Route {...rest} render={() => (authenticated ? children : <Redirect to="/login" />)} />
   );
 }
 

@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import VideoContext from '../../store/VideoContext';
 
-function VideoDetailCard({
-  videoDetailThumbnail,
-  videoDetailTitle,
-  videoDetailDescription,
-  videoId,
-}) {
+const VideoDetailWrapper = styled.div`
+  border: 1px solid black;
+  height: 600px;
+  iframe {
+    width: 70%;
+    height: 500px;
+  }
+  h1 {
+    font-weight: bold;
+    margin: 0;
+  }
+  h1, h2 {
+    width: 70%;
+  }
+`;
+
+function VideoDetailCard() {
+  const { state } = useContext(VideoContext);
+  console.log(state);
   return (
-    <section className="video-detail-wrapper">
-      <iframe src={`https://www.youtube.com/embed/${videoId}`} title={videoDetailTitle} />
-      <div>{videoDetailThumbnail}</div>
-      <div>{videoDetailDescription}</div>
-    </section>
+    <VideoDetailWrapper>
+      <iframe src={`https://www.youtube.com/embed/${state.currentVideo.videoId}`} title={state.currentVideo.videoTitle} />
+      <h1>{state.currentVideo.videoTitle}</h1>
+      <h2>{state.currentVideo.videoDescription}</h2>
+    </VideoDetailWrapper>
   );
 }
 

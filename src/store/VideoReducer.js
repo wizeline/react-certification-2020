@@ -1,8 +1,11 @@
 const VideoReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_CURRENT_VIDEO':
+    case 'SET_CURRENT_VIDEO': {
+      console.log('SET_CURRENT_VIDEO');
       return { ...state, currentVideo: action.payload };
+    }
     case 'ADD_FAVORITE_VIDEO': {
+      console.log('ADD_FAVORITE');
       const videoExists = () => {
         return state.favoriteVideos.find((video) => {
           return action.payload.videoId === video.videoId;
@@ -10,6 +13,7 @@ const VideoReducer = (state, action) => {
       };
       const videosIsNotEmpty = () => state.favoriteVideos.length !== 0;
       if (videosIsNotEmpty() && videoExists()) {
+        console.log('video ya existe!', state.favoriteVideos);
         return {
           ...state,
           favoriteVideos: state.favoriteVideos,

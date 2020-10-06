@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
 import './Login.styles.css';
 
 function LoginPage() {
-  const { login } = useAuth();
+  const { login, authenticated } = useAuth();
   const history = useHistory();
 
   function authenticate(event) {
     event.preventDefault();
     login();
-    history.push('/favorites');
   }
+
+  useEffect(() => {
+    if (authenticated) {
+      history.push('/favorites');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authenticated]);
 
   return (
     <section className="login">

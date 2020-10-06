@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import VideoContext from '../../store/VideoContext';
-import './VideoCard.styles.css';
+import { VideoCardWrapper } from './VideoCardStyles';
 import likeIcon from '../../assets/like.svg';
 
 function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
@@ -34,14 +34,14 @@ function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
 
   return (
     <Link to="/detail" onClick={handleVideoClick}>
-      <div className="video-section" key={videoId}>
+      <VideoCardWrapper key={videoId}>
         <div className="image-wrapper">
           <img className="video-thumbnail" src={videoThumbnail} alt={videoTitle} />
         </div>
         <input className="like-icon" src={likeIcon} type="button" onClick={handleLike} />
         <h2 className="video-title">{videoTitle}</h2>
         <p className="video-description">{videoDescription}</p>
-      </div>
+      </VideoCardWrapper>
     </Link>
   );
 }
