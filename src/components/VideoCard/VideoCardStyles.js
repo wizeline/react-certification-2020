@@ -12,6 +12,7 @@ export const VideoCardWrapper = styled.div`
   background-color: lavender;
 
   .image-wrapper {
+    position: relative;
     width: 300px;
     overflow: hidden;
     background-size: cover;
@@ -27,8 +28,8 @@ export const VideoCardWrapper = styled.div`
   }
 
   .like-icon {
-    width: 10%;
-    height: 10%;
+    padding-right: 8px;
+    height: 100%;
   }
 
   h2,
@@ -47,4 +48,19 @@ export const VideoCardWrapper = styled.div`
   p {
     font-size: 10px;
   }
+`;
+
+export const VideoCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const VideoCardTitle = styled.h2`
+  display: flex;
+`;
+
+export const LikeButton = styled.div`
+  display: flex;
+  height: 20px;
 `;

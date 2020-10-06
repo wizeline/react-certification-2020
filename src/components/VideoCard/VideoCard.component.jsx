@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import VideoContext from '../../store/VideoContext';
-import { VideoCardWrapper } from './VideoCardStyles';
+import { useVideoContext } from '../../store/VideoContext';
+import {
+  VideoCardWrapper,
+  LikeButton,
+  VideoCardTitle,
+  VideoCardHeader,
+} from './VideoCardStyles';
 import likeIcon from '../../assets/like.svg';
 
 function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
-  const { dispatch } = useContext(VideoContext);
+  const { dispatch } = useVideoContext();
 
   const handleVideoClick = () => {
     dispatch({
@@ -43,8 +48,19 @@ function VideoCard({ videoDescription, videoTitle, videoThumbnail, videoId }) {
             alt={videoTitle}
           />
         </div>
-        <input className="like-icon" src={likeIcon} type="button" onClick={handleLike} />
-        <h2 className="video-title">{videoTitle}</h2>
+        {/* <input className="like-icon" src={likeIcon} type="button" onClick={handleLike} /> */}
+        <VideoCardHeader>
+          <VideoCardTitle className="video-title">{videoTitle}</VideoCardTitle>
+          <LikeButton>
+            <input
+              className="like-icon"
+              src={likeIcon}
+              type="image"
+              onClick={handleLike}
+              alt="like"
+            />
+          </LikeButton>
+        </VideoCardHeader>
         <p className="video-description">{videoDescription}</p>
       </VideoCardWrapper>
     </Link>

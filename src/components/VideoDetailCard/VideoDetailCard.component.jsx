@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import VideoContext from '../../store/VideoContext';
+import { useVideoContext } from '../../store/VideoContext';
 
 const VideoDetailWrapper = styled.div`
   height: 600px;
@@ -23,7 +23,7 @@ const VideoDetailWrapper = styled.div`
 `;
 
 function VideoDetailCard() {
-  const { state } = useContext(VideoContext);
+  const { state } = useVideoContext();
   return (
     <VideoDetailWrapper>
       <iframe

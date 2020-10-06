@@ -1,9 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import VideoCardPanel from '../../components/VideoCardPanel';
-import VideoContext from '../../store/VideoContext';
+import { useVideoContext } from '../../store/VideoContext';
+
+const FavoritesTitle = styled.h1`
+  padding-left: 26px;
+`;
 
 function FavoriteVideoPage() {
-  const { state, dispatch } = useContext(VideoContext);
+  const { state, dispatch } = useVideoContext();
   useEffect(() => {
     dispatch({
       type: 'LOAD_FROM_STORAGE',
@@ -13,7 +18,7 @@ function FavoriteVideoPage() {
 
   return (
     <div className="favorites-wrapper">
-      <h1>Favoritos</h1>
+      <FavoritesTitle>Favorites</FavoritesTitle>
       {state.favoriteVideos && <VideoCardPanel videos={state.favoriteVideos} />}
     </div>
   );

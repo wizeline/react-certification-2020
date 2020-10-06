@@ -1,19 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import VideoDetailCard from '../../components/VideoDetailCard';
-// import RelatedVideos from '../../components/RelatedVideos';
-import VideoContext from '../../store/VideoContext';
+import { useVideoContext } from '../../store/VideoContext';
 
 function VideoDetailPage() {
-  const { state } = useContext(VideoContext);
+  const { state } = useVideoContext();
   return (
-    <div>
-      <VideoDetailCard
-        videoDetailThumbnail={state.currentVideo.videoThumbnail}
-        videoDetailTitle={state.currentVideo.videoTitle}
-        videoDetailDescription={state.currentVideo.videoDescription}
-      />
-      {/* <RelatedVideos relatedVideos={relatedVideos}> */}
-    </div>
+    <VideoDetailCard
+      videoDetailThumbnail={state.currentVideo.videoThumbnail}
+      videoDetailTitle={state.currentVideo.videoTitle}
+      videoDetailDescription={state.currentVideo.videoDescription}
+    />
   );
 }
 

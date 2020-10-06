@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useReducer, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
@@ -6,10 +6,7 @@ import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
 import VideoDetail from '../../pages/VideoDetail';
 import FavoriteVideos from '../../pages/FavoriteVideos';
-// import Private from '../Private';
-// import Layout from '../Layout';
-import VideoReducer from '../../store/VideoReducer';
-import VideoContext from '../../store/VideoContext';
+import VideosProvider from '../../store/VideoContext';
 import Navbar from '../Navbar';
 import Private from '../Private';
 
@@ -18,14 +15,6 @@ import { random } from '../../utils/fns';
 function App() {
   const [inputState, setInputState] = useState();
 
-  const [state, dispatch] = useReducer(VideoReducer, {
-    currentVideo: {},
-    favoriteVideos: [],
-    videos: [],
-    setCurrentVideo: () => {},
-    addFavoritevideo: () => {},
-    loadFromStorage: () => {},
-  });
   useLayoutEffect(() => {
     const { body } = document;
 
@@ -47,23 +36,17 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <VideoContext.Provider value={{ state, dispatch }}>
+        <VideosProvider>
           <Navbar setInputState={setInputState} />
           <Switch>
             <Route exact path="/">
               <HomePage inputState={inputState} />
             </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Route exact path="/detail">
-              <VideoDetail />
-            </Route>
-            <Private exact path="/favorites">
-              <FavoriteVideos />
-            </Private>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/detail" component={VideoDetail} />
+            <Private exact path="/favorites" component={FavoriteVideos} />
           </Switch>
-        </VideoContext.Provider>
+        </VideosProvider>
       </BrowserRouter>
     </AuthProvider>
   );

@@ -5,5 +5,5 @@ export const VideoCardPanelWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding-top: 10%;
+  padding-top: 32px;
 `;

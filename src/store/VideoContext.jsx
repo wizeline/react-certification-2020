@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useReducer, useContext } from 'react';
+import videoReducer from './VideoReducer';
 
 const VideoContext = React.createContext({
   videos: [],
   currentVideo: {},
-  setCurrentVideo: () => {},
   favoriteVideos: [],
-  addFavoritevideo: () => {},
-  loadFromStorage: () => {},
 });
 
-export default VideoContext;
+export const useVideoContext = () => useContext(VideoContext);
+
+function VideosProvider({ children }) {
+  const [state, dispatch] = useReducer(videoReducer, {
+    currentVideo: {},
+    favoriteVideos: [],
+    videos: [],
+  });
+
+  return (
+    <VideoContext.Provider value={{ state, dispatch }}>{children}</VideoContext.Provider>
+  );
+}
+
+export default VideosProvider;

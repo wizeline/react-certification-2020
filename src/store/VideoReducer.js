@@ -1,11 +1,9 @@
-const VideoReducer = (state, action) => {
+const videoReducer = (state, action) => {
   switch (action.type) {
     case 'SET_CURRENT_VIDEO': {
-      console.log('SET_CURRENT_VIDEO');
       return { ...state, currentVideo: action.payload };
     }
     case 'ADD_FAVORITE_VIDEO': {
-      console.log('ADD_FAVORITE');
       const videoExists = () => {
         return state.favoriteVideos.find((video) => {
           return action.payload.videoId === video.videoId;
@@ -40,4 +38,4 @@ const VideoReducer = (state, action) => {
   }
 };
 
-export default VideoReducer;
+export default videoReducer;
