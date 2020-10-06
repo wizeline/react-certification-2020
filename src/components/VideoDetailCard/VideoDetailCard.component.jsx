@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import VideoContext from '../../store/VideoContext';
 
 const VideoDetailWrapper = styled.div`
-  border: 1px solid black;
   height: 600px;
   iframe {
     width: 70%;
@@ -13,6 +12,10 @@ const VideoDetailWrapper = styled.div`
     font-weight: bold;
     margin: 0;
   }
+  h2 {
+    font-weight: normal;
+    font-size: medium;
+  }
   h1,
   h2 {
     width: 70%;
@@ -20,15 +23,15 @@ const VideoDetailWrapper = styled.div`
 `;
 
 function VideoDetailCard() {
-  const { currentVideo } = useContext(VideoContext);
+  const { state } = useContext(VideoContext);
   return (
     <VideoDetailWrapper>
       <iframe
-        src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
-        title={currentVideo.videoTitle}
+        src={`https://www.youtube.com/embed/${state.currentVideo.videoId}`}
+        title={state.currentVideo.videoTitle}
       />
-      <h1>{currentVideo.videoTitle}</h1>
-      <h2>{currentVideo.videoDescription}</h2>
+      <h1>{state.currentVideo.videoTitle}</h1>
+      <h2>{state.currentVideo.videoDescription}</h2>
     </VideoDetailWrapper>
   );
 }

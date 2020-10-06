@@ -6,7 +6,11 @@ import { videosMock } from '../../mocks/VideoCardMock';
 
 describe('VideoCardPanel', () => {
   it('renders provided properties', () => {
-    render(<BrowserRouter><VideoCardPanel videos={videosMock} /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+        <VideoCardPanel videos={videosMock} />
+      </BrowserRouter>
+    );
 
     expect(screen.getAllByTestId('video-card')).toHaveLength(3);
   });
