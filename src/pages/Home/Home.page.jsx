@@ -1,38 +1,36 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import VideoCardPanel from '../../components/VideoCardPanel';
+// import mockedVideos from '../../utils/mockData.json';
 
-function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+const HomePageWrapper = styled.div`
+  background-color: snow;
+`;
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+const HomePageTitle = styled.h1`
+  padding-left: 26px;
+`;
+
+function HomePage({ inputState }) {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+    const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${inputState}&key=${API_KEY}`;
+    const fetchVideos = async () => {
+      const videosFetched = await fetch(API_URL).then((response) => response.json());
+      setVideos(videosFetched.items);
+    };
+    fetchVideos();
+    // setVideos(mockedVideos.items);
+  }, [inputState]);
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <>
+      <HomePageTitle>Home</HomePageTitle>
+      <HomePageWrapper> {videos && <VideoCardPanel videos={videos} />}</HomePageWrapper>
+    </>
   );
 }
 
