@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { useFortune } from '../../utils/hooks/useFortune';
-import './Fortune.styles.css';
+import { FortuneContainer } from './styles';
 
 function Fortune() {
   const { fortune } = useFortune();
 
-  return <span className="fortune">{fortune} </span>;
+  return <FortuneContainer>{fortune}</FortuneContainer>;
 }
 
 export default Fortune;

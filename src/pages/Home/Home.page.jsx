@@ -1,39 +1,40 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+// React
+import React, { useRef, useEffect } from 'react';
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+// Selectors
+import selectors from '../../store/mokup/selectors';
+// Actions
+import mokupActions from '../../store/mokup/actions';
+// Components
+import Card from '../../components/common/card';
+// Styles
+import { ContentContainer, HomeContainer, HomeTitle } from './styles';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
-
-function HomePage() {
-  const history = useHistory();
+const HomePage = () => {
+  const dispatch = useDispatch();
+  const mokup = useSelector((state) => selectors.selectMokup(state));
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  useEffect(() => {
+    dispatch(mokupActions.load());
+  }, [dispatch]);
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <HomeContainer ref={sectionRef}>
+      <HomeTitle>Welcome to the Challenge!</HomeTitle>
+      <ContentContainer>
+        {mokup.map((item) => (
+          <Card
+            key={`${item.snippet.title}-${item.snippet.description}`}
+            title={item.snippet.title}
+            description={item.snippet.description}
+            image={item.snippet.thumbnails.high.url}
+          />
+        ))}
+      </ContentContainer>
+    </HomeContainer>
   );
-}
+};
 
 export default HomePage;
