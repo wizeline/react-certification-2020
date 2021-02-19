@@ -7,10 +7,17 @@ export const CardContainer = styled.div`
   min-height: 360px;
   transition: ease 0.3s;
   border-radius: 4px;
-  background-color: ${(props) => props.theme.palette.secondary.light};
+  background-color: ${(props) =>
+    (props &&
+      props.theme &&
+      props.theme.palette &&
+      props.theme.palette.secondary.light) ||
+    '#fff'};
   cursor: pointer;
   &:hover {
-    background-color: ${(props) => props.theme.palette.accent};
+    background-color: ${(props) =>
+      (props && props.theme && props.theme.palette && props.theme.palette.accent) ||
+      '#fafafa'};
   }
 `;
 
@@ -29,7 +36,12 @@ export const CardInnerContainer = styled.div`
 `;
 
 export const CardTitle = styled.h2`
-  color: ${(props) => props.theme.typography.title.color};
+  color: ${(props) =>
+    (props &&
+      props.theme &&
+      props.theme.typography &&
+      props.theme.typography.title.color) ||
+    '#000'};
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.6;
@@ -42,5 +54,10 @@ export const CardDescription = styled.p`
   font-weight: 400;
   line-height: 1.43;
   letter-spacing: 0.01071em;
-  color: ${(props) => props.theme.typography.text.color};
+  color: ${(props) =>
+    (props &&
+      props.theme &&
+      props.theme.typography &&
+      props.theme.typography.title.color) ||
+    '#000'};
 `;

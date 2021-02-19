@@ -11,12 +11,12 @@ import {
   CardDescription,
 } from './styles';
 
-export const Card = ({ image, title, description, url }) => {
+const Card = ({ image, title, description, url }) => {
   const handleClick = () => {
     console.log({ url });
   };
   return (
-    <CardContainer onClick={handleClick}>
+    <CardContainer onClick={handleClick} data-testid="card-test">
       <CardImage image={image} />
       <CardInnerContainer>
         <CardTitle>{title}</CardTitle>

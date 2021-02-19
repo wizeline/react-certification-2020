@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 // Styles
 import { ButtonWrapper, Icon } from './styles';
 
-const IconButton = ({ image, className, handleClick, children }) => {
+const IconButton = ({ image, className, handleClick, children, testid }) => {
   return (
-    <ButtonWrapper className={className}>
-      <Icon className={className} image={image} onClick={handleClick}>
+    <ButtonWrapper className={className} data-testid={testid} onClick={handleClick}>
+      <Icon className={className} image={image}>
         {children}
       </Icon>
     </ButtonWrapper>
@@ -17,12 +17,15 @@ const IconButton = ({ image, className, handleClick, children }) => {
 
 IconButton.defaultProps = {
   className: '',
+  image: '',
+  testid: 'icon-button',
 };
 
 IconButton.propTypes = {
-  image: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
+  image: PropTypes.string,
   className: PropTypes.string,
+  testid: PropTypes.string,
 };
 
 export default IconButton;

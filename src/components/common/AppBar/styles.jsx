@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   color: #fff;
-  background-color: ${(props) => props.theme.palette.primary.main};
+  background-color: ${(props) => props.theme.palette && props.theme.palette.primary.main};
   width: 100%;
   display: flex;
   z-index: 1100;
@@ -12,7 +12,7 @@ export const Header = styled.header`
 `;
 
 export const AppBarWrapper = styled.div`
-  min-height: ${(props) => props.theme.appBar.height.desktop};
+  min-height: ${(props) => props.theme.appBar && props.theme.appBar.height.desktop};
   padding: 0 24px;
   display: flex;
   align-items: center;

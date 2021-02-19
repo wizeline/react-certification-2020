@@ -14,7 +14,7 @@ import {
 
 const ToggleButton = ({ checked, handleClick, title }) => {
   return (
-    <ToggleWrapper>
+    <ToggleWrapper data-testid="toggle-button">
       <SwitchHandleWrapper>
         <Handle>
           <SwitchWrapper>

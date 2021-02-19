@@ -7,7 +7,7 @@ import selectors from '../../store/mokup/selectors';
 // Actions
 import mokupActions from '../../store/mokup/actions';
 // Components
-import Card from '../../components/common/card';
+import Card from '../../components/common/Card';
 // Styles
 import { ContentContainer, HomeContainer, HomeTitle } from './styles';
 

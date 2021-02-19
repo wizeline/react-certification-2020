@@ -15,11 +15,13 @@ export const ButtonWrapper = styled.button`
     margin-right: 16px;
   }
   &.bigger {
-    height: ${(props) => props.theme.appBar.height.desktop};
-    width: ${(props) => props.theme.appBar.height.desktop};
+    height: ${(props) => props.theme.appBar && props.theme.appBar.height.desktop};
+    width: ${(props) => props.theme.appBar && props.theme.appBar.height.desktop};
   }
   &:hover {
-    background-color: rgba(${(props) => props.theme.palette.primary.transparent});
+    background-color: rgba(
+      ${(props) => props.theme.palette && props.theme.palette.primary.transparent}
+    );
   }
   &:focus {
     outline: none;
@@ -46,10 +48,10 @@ export const Icon = styled.div`
   }
   svg {
     path {
-      fill: ${(props) => props.theme.profile.secondary};
+      fill: ${(props) => props.theme.profile && props.theme.profile.secondary};
     }
     path:not(:first-of-type) {
-      fill: ${(props) => props.theme.profile.primary};
+      fill: ${(props) => props.theme.profile && props.theme.profile.primary};
     }
   }
   @media screen and (min-width: 600px) {

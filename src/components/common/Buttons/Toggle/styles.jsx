@@ -41,7 +41,7 @@ export const Circle = styled.span`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
     0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 50%;
-  background-color: ${(props) => props.theme.palette.accent};
+  background-color: ${(props) => props.theme.palette && props.theme.palette.accent};
   transform: translateX(${(props) => (props.checked ? '100%' : '0')});
   transition: ease 0.3s;
 `;

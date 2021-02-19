@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // Actions
 import mokupActions from '../../../store/mokup/actions';
-import themeActions from '../../../store/theme/actions';
 // Components
 import IconButton from '../Buttons/Icon';
 import ToggleButton from '../Buttons/Toggle';
@@ -14,19 +13,20 @@ import { AppBarWrapper, Header, RightWrapper } from './styles';
 // SVG
 import menu from '../../../assets/menu.svg';
 import { ReactComponent as IconProfile } from '../../../assets/account.svg';
-// Utils
-import { THEME_SELECTED } from '../../../utils/constants';
-import { storage } from '../../../utils/storage';
+// Provider
+import { useTheme } from '../../../providers/theme';
 
 const AppBar = () => {
   const dispatch = useDispatch();
-  const selected = storage.get(THEME_SELECTED);
+  const { selected, toggleTheme } = useTheme();
   const [theme, setTheme] = useState(selected);
+
+  // handle functions
   const filter = ({ target }) => {
     dispatch(mokupActions.filterMokup(target.value));
   };
   const handleTheme = ({ target }) => {
-    dispatch(themeActions.toggle(target.checked));
+    toggleTheme(target.checked);
     setTheme(target.checked);
   };
 
@@ -39,13 +39,18 @@ const AppBar = () => {
   };
 
   return (
-    <Header>
+    <Header data-testid="header-test">
       <AppBarWrapper>
-        <IconButton image={menu} className="menu" handleClick={handleMenu} />
+        <IconButton
+          testid="menu-button"
+          image={menu}
+          className="menu"
+          handleClick={handleMenu}
+        />
         <InputText placeholder="Search..." icon onChange={filter} />
         <RightWrapper>
           <ToggleButton handleClick={handleTheme} checked={theme} title="Dark mode" />
-          <IconButton className="bigger" handleClick={handleLogin}>
+          <IconButton testid="login-button" className="bigger" handleClick={handleLogin}>
             <IconProfile />
           </IconButton>
         </RightWrapper>

@@ -9,18 +9,20 @@ const InputText = ({ placeholder, onChange, icon }) => {
   return (
     <InputWrapper>
       {icon && <IconWrapper />}
-      <Input placeholder={placeholder} onChange={onChange} />
+      <Input type="text" placeholder={placeholder} onChange={onChange} />
     </InputWrapper>
   );
 };
 
 InputText.defaultProps = {
   icon: false,
+  placeholder: '',
+  onChange: () => {},
 };
 
 InputText.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   icon: PropTypes.bool,
 };
 

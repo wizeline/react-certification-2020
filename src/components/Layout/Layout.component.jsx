@@ -1,25 +1,15 @@
 // React
-import React, { useEffect } from 'react';
-// Redux
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 // Theme
 import { ThemeProvider } from 'styled-components';
-// Actions
-import themeActions from '../../store/theme/actions';
-// Selectors
-import selectors from '../../store/theme/selectors';
+import { useTheme } from '../../providers/theme';
 // Components
 import AppBar from '../common/AppBar';
 // Styles
 import { MainContainer } from './styles';
 
 function Layout({ children }) {
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => selectors.selectTheme(state));
-
-  useEffect(() => {
-    dispatch(themeActions.load());
-  }, [dispatch]);
+  const { theme } = useTheme();
 
   return (
     <ThemeProvider theme={theme}>

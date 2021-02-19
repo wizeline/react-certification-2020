@@ -10,7 +10,12 @@ export const HomeTitle = styled.h1`
   letter-spacing: 0.01071em;
   margin-block-start: 0.5em;
   margin-block-end: 0.65em;
-  color: ${(props) => props.theme.typography.title.color};
+  color: ${(props) =>
+    (props &&
+      props.theme &&
+      props.theme.typography &&
+      props.theme.typography.title.color) ||
+    '#000'};
   text-align: center;
 `;
 
