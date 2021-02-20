@@ -5,7 +5,7 @@ import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 import List from '../../components/List/List.component';
 
-import mockedData from '../../youtube-videos-mock.json';  
+import mockedData from '../../youtube-videos-mock.json';
 
 const { items } = mockedData;
 
@@ -33,9 +33,9 @@ function HomePage() {
         </>
       ) : (
         <Link to="/login">let me in →</Link>
-        )}
+      )}
       <h3>Items list</h3>
-      <List items={items}/>
+      <List items={items} />
     </section>
   );
 }
