@@ -17,7 +17,7 @@ function HomePage() {
   function deAuthenticate(event) {
     event.preventDefault();
     logout();
-    history.push('/');
+    history.push('/hola');
   }
 
   return (

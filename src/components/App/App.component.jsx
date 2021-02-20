@@ -37,6 +37,9 @@ function App() {
         <Header />
         <Layout>
           <Switch>
+            <Route exact path="/react-certification-2020/">
+              <HomePage />
+            </Route>
             <Route exact path="/">
               <HomePage />
             </Route>
