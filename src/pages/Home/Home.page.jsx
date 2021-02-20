@@ -3,6 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
+import List from '../../components/List/List.component';
+
+import mockedData from '../../youtube-videos-mock.json';
+
+const { items } = mockedData;
 
 function HomePage() {
   const history = useHistory();
@@ -12,12 +17,11 @@ function HomePage() {
   function deAuthenticate(event) {
     event.preventDefault();
     logout();
-    history.push('/');
+    history.push('/hola');
   }
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
       {authenticated ? (
         <>
           <h2>Good to have you back</h2>
@@ -25,13 +29,13 @@ function HomePage() {
             <Link to="/" onClick={deAuthenticate}>
               ← logout
             </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
           </span>
         </>
       ) : (
         <Link to="/login">let me in →</Link>
       )}
+      <h3>Items list</h3>
+      <List items={items} />
     </section>
   );
 }

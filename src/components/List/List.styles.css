@@ -1,0 +1,9 @@
+.items-list {
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 20px;
+  flex-grow: 0;
+  max-width: 100%;
+  flex-basis: 100%;
+}
