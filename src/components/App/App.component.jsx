@@ -9,6 +9,7 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
 import ThemeBaseProvider from '../../providers/theme';
+import VideoDetails from '../../pages/VideoDetails/VideoDetails';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <HomePage />
+              </Route>
+              <Route exact path="/video/:id">
+                <VideoDetails />
               </Route>
               <Route exact path="/login">
                 <LoginPage />

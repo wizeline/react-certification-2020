@@ -3,9 +3,6 @@ import React from 'react';
 // Testing
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// Redux
-import { Provider as ReduxProvider } from 'react-redux';
-import configureStore from '../../../store';
 // Components
 import AppBar from './AppBar';
 // Theme Provider
@@ -13,13 +10,10 @@ import ThemeBaseProvider from '../../../providers/theme';
 
 describe('AppBar component', () => {
   beforeEach(() => {
-    const store = configureStore();
     render(
-      <ReduxProvider store={store}>
-        <ThemeBaseProvider>
-          <AppBar />
-        </ThemeBaseProvider>
-      </ReduxProvider>
+      <ThemeBaseProvider>
+        <AppBar />
+      </ThemeBaseProvider>
     );
   });
   it('should render and children should be equal to 1', () => {

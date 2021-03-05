@@ -1,9 +1,5 @@
 // React
 import React, { useState } from 'react';
-// Redux
-import { useDispatch } from 'react-redux';
-// Actions
-import mokupActions from '../../../store/mokup/actions';
 // Components
 import IconButton from '../Buttons/Icon';
 import ToggleButton from '../Buttons/Toggle';
@@ -15,15 +11,16 @@ import menu from '../../../assets/menu.svg';
 import { ReactComponent as IconProfile } from '../../../assets/account.svg';
 // Provider
 import { useTheme } from '../../../providers/theme';
+import { useVideos } from '../../../providers/Videos/Videos.provider';
 
 const AppBar = () => {
-  const dispatch = useDispatch();
   const { selected, toggleTheme } = useTheme();
+  const { filterVideos } = useVideos();
   const [theme, setTheme] = useState(selected);
 
   // handle functions
   const filter = ({ target }) => {
-    dispatch(mokupActions.filterMokup(target.value));
+    filterVideos(target.value);
   };
   const handleTheme = ({ target }) => {
     toggleTheme(target.checked);

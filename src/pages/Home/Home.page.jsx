@@ -1,37 +1,17 @@
 // React
-import React, { useRef, useEffect } from 'react';
-// Redux
-import { useDispatch, useSelector } from 'react-redux';
-// Selectors
-import selectors from '../../store/mokup/selectors';
-// Actions
-import mokupActions from '../../store/mokup/actions';
-// Components
-import Card from '../../components/common/Card';
+import React, { useRef } from 'react';
+import HomeList from '../../components/Home';
 // Styles
 import { ContentContainer, HomeContainer, HomeTitle } from './styles';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const mokup = useSelector((state) => selectors.selectMokup(state));
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    dispatch(mokupActions.load());
-  }, [dispatch]);
 
   return (
     <HomeContainer ref={sectionRef}>
       <HomeTitle>Welcome to the Challenge!</HomeTitle>
       <ContentContainer>
-        {mokup.map((item) => (
-          <Card
-            key={`${item.snippet.title}-${item.snippet.description}`}
-            title={item.snippet.title}
-            description={item.snippet.description}
-            image={item.snippet.thumbnails.high.url}
-          />
-        ))}
+        <HomeList />
       </ContentContainer>
     </HomeContainer>
   );
