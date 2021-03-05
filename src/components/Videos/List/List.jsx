@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import Card from '../../common/Card';
+import Card from 'src/components/common/Card';
 // Styles
 import { ListContainer } from './styles';
 
