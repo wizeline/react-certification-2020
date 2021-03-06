@@ -1,69 +1,22 @@
 import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import VideoList from '../../components/VideoList';
-
-//import env from "react-dotenv";
-
+import { useFetch } from '../../components/useFetch';
+import { useSearchVideo } from '../../components/useSearchVideo';
 import { useAuth } from '../../providers/Auth';
-import mockedYTData from "../../YT_list.json";
+import { mockedYTData } from "../../YT_list";
 
-//const YOUTUBE_PLAYLIST_ITEMS_API = 'https://youtube.googleapis.com/youtube/v3/playlistItems?';
-/*
-class HomePage extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
-
-  componentDidMount() {
-    fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet%2CcontentDetails&maxResults=25&playlistId=PLBCF2DAC6FFB574DE&key=${env.YOUTUBE_API_KEY}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result.items);
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
-
-  render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              {item.id} {item.etag}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  }
-  */
 function HomePage() {
-  const history = useHistory();
+  //const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
-  const { items } = mockedYTData;
+  //const { items } = mockedYTData;
+  const [ searchVideo ] = useSearchVideo();
+  const searchQuery = typeof searchVideo === 'string' && searchVideo === "" ? "wizeline" : searchVideo ;
+
+  const { hasErrors, isLoaded, items } = useFetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=${searchQuery}&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+  // const isLoaded = true;
+  // const hasErrors = false;
 /*
   function deAuthenticate(event) {
     event.preventDefault();
@@ -74,8 +27,8 @@ function HomePage() {
   return (
     <section ref={sectionRef}>
       <h2 className = "welcome">Welcome to the Challenge!</h2>
-      {authenticated ? (
-          <VideoList items={items} />
+      {authenticated && items ? (
+        <VideoList items={items} isLoaded={isLoaded} hasErrors={hasErrors} />
       ) : (
         <Link to="/login">let me in →</Link>
       )}

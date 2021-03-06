@@ -1,18 +1,6 @@
 import styled from "styled-components";
 import px2vw from "../../utils/px2vw";
 
-export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: ${px2vw(32)};
-  max-width: 100%;
-
-  @media (min-width: 1024px) {
-    flex-wrap: wrap;
-  }
-`;
-
 export const Box = styled.div`
   display: flex;
 
@@ -23,7 +11,24 @@ export const Box = styled.div`
   margin: ${px2vw(20)};
   background-color: #424242;
   color: white;
+  a {
+    color: white;
+    :link {
+      text-decoration: none;
+    }
 
+    :visited {
+      text-decoration: none;
+    }
+
+    :hover {
+      text-decoration: none;
+    }
+
+    :active {
+      text-decoration: none;
+    }
+  }
   @media (min-width: 768px) {
   }
 
@@ -34,32 +39,82 @@ export const Box = styled.div`
 export const BoxImage = styled.div`
   img{
     width: 100%;
-    height: 170px;
+    height: 140px;
     display: block;
     text-align: inherit;
   }
 `;
 
 export const BoxInfo = styled.div `
-  margin: 10px;
+  padding: 16px;
 `;
 
-export const BoxTitle = styled.h3`
-  color: #333;
-  font-size: 2rem;
-  text-align: center;
+export const BoxTitle = styled.h2`
+  color: #fff;
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
   }
 `;
 
 export const BoxText = styled.p`
-  margin-top: ${px2vw(20)};
-  font-size: 1.5rem;
+  margin-top: 0.35em;
   word-wrap: break-word;
-  padding: 0 ${px2vw(20)};
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
   @media (min-width: 1024px) {
-    font-size: 1rem;
   }
+`;
+
+export const BoxSide = styled.div`
+  a {
+    color: white;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    :link {
+      text-decoration: none;
+    }
+
+    :visited {
+      text-decoration: none;
+    }
+
+    :hover {
+      text-decoration: none;
+    }
+
+    :active {
+      text-decoration: none;
+    }
+  }
+`;
+export const BoxImageSide = styled.img`
+    width: 120px;
+    height: 90px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const BoxInfoSide = styled.div `
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+`;
+
+export const BoxTitleSide = styled.p`
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
 `;

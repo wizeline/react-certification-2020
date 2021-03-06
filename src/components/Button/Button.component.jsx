@@ -6,7 +6,7 @@ const Button = () => {
   return (
     <ButtonContainer>
         <span>
-            <img className="image" alt="user" src="https://media.glassdoor.com/sqll/868055/wizeline-squarelogo-1473976610815.png" />
+            <img className="image" alt="User Avatar" src="https://media.glassdoor.com/sqll/868055/wizeline-squarelogo-1473976610815.png" />
         </span>
     </ButtonContainer>
   )

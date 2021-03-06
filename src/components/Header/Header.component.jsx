@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../Search';
+import { Search } from '../Search/Search.component';
 import Toogle from '../Toogle';
 import Button from '../Button';
 import Navbar from '../NarvBar';

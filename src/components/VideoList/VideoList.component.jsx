@@ -1,26 +1,21 @@
 import React from "react";
-import { Container, Box, BoxImage, BoxInfo, BoxTitle, BoxText } from './styled';
+import VideoMain from './VideoMain';
+import VideoSide from './VideoSide';
 
-const NoImage = require('./noimage.jpg');
-const VideoList = ({ items }) => {
+const VideoList = ({ items, isLoaded, hasErrors, sideList }) => {
+
   return (
-    <Container>
-      {items.map(box => (
-        <Box key={box.id}>
-          <BoxImage>
-          {box.snippet.thumbnails.default?
-            (<img className="image" alt="user" src={box.snippet.thumbnails.default.url} />)
-            :
-            (<img className="image" alt="user" src={NoImage} />)
-            }
-          </BoxImage>
-          <BoxInfo>
-            <BoxTitle>{box.snippet.title}</BoxTitle>
-            <BoxText>{box.snippet.description.substr(0, 90)} ...</BoxText>
-          </BoxInfo>
-        </Box>
-      ))}
-    </Container>
+    <div className= {sideList ?sideList:"container"} > 
+      {items ?
+        items.map((box, index) => (
+          typeof box.id.videoId !== 'undefined' ? 
+          (sideList ? 
+          <VideoSide info={box} key={index} /> :
+          <VideoMain info={box} key={index} />) :""
+        )) :
+        <span>no data</span>
+      }
+    </div>
   )};
 
 export default VideoList; 

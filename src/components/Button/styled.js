@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import px2vw from "../../utils/px2vw";
-
 
 export const ButtonContainer = styled.div`
     width: 40px;
