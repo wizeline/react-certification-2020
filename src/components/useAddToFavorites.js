@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from 'react-router-dom';
 
 export const useAddToFavorites = () => {
@@ -8,7 +8,7 @@ export const useAddToFavorites = () => {
   const remove = "remove";
   let { id } = useParams();
   const getArray = JSON.parse(localStorage.getItem('favorites'));
-  let action = getArray.find((videoId) => videoId == id) ? remove : add;
+  let action = getArray.find((videoId) => videoId === id) ? remove : add;
   let label = action === add ? addFavorites : removeFavorites;
   console.log(action);
   const [favorites, setFavorites] = useState(getArray ? getArray:[]);

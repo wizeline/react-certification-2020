@@ -3,13 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useAddToFavorites } from '../../components/useAddToFavorites';
 import { BoxInfo, BoxText, DetailPage, Title, AddFavorite } from './styled';
 
-import { mockedYTData } from "../../YT_list";
-
 function DetailContent(videoData) {
     let { id } = useParams();
     let videoSrc = `https://www.youtube.com/embed/${id}?controls=0&autoplay=0`;
 
-    const videoInfo = mockedYTData.find(function(post) {
+    const videoInfo = videoData.find(function(post) {
         if(post.id.videoId === id)
         return true;
     });

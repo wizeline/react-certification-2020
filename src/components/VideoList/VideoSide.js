@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 import { BoxSide, BoxImageSide, BoxInfoSide, BoxTitleSide } from './styled';
 
