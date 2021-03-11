@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import GlobalStyle from '../../globalStyles';
 
 import AuthProvider from '../../providers/Auth';
@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
     
-      <BrowserRouter>
+      <HashRouter>
       <GlobalStyle />
         <AuthProvider>
           <Layout>
@@ -36,7 +36,7 @@ function App() {
             </Switch>
           </Layout>
         </AuthProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
