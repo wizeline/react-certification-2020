@@ -11,7 +11,7 @@ export const Container = styled.div`
   max-width: 100%;
   flex-direction: row;
   color: #fff;
-  background-color: #556cd6;
+  background-color: ${(props) => props.headerColor};
   min-height: 64px;
 
   @media (min-width: 1024px) {

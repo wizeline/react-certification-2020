@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100px;
+    width: 150px;
     display: flex;
-
 `;
+
+export const DarkMode = styled.div`
+    width: 80px;
+    height: 38px;
+    display: flex;
+    vertical-align: middle;
+    margin-left: 25px;
+    padding: 12px 0;
+`;
+
 export const Label = styled.label`
     width: 58px;
     height: 38px;

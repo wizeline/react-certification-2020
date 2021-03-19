@@ -9,10 +9,9 @@ export const Box = styled.div`
   flex-direction: column;
   padding: 0;
   margin: ${px2vw(20)};
-  background-color: #424242;
-  color: white;
+  background-color: ${(props) => props.videoCardBackgroundColor};
   a {
-    color: white;
+    color: ${(props) => props.color};
     :link {
       text-decoration: none;
     }
@@ -50,7 +49,7 @@ export const BoxInfo = styled.div `
 `;
 
 export const BoxTitle = styled.h2`
-  color: #fff;
+  color: ${(props) => props.color};
   font-size: 1.25rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
@@ -64,19 +63,17 @@ export const BoxTitle = styled.h2`
 export const BoxText = styled.p`
   margin-top: 0.35em;
   word-wrap: break-word;
-  color: rgba(255, 255, 255, 0.7);
+  color: ${(props) => props.videoCardColor} ;
   font-size: 0.875rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.43;
   letter-spacing: 0.01071em;
-  @media (min-width: 1024px) {
-  }
 `;
 
 export const BoxSide = styled.div`
   a {
-    color: white;
+    color: ${(props) => props.color};
     height: 100px;
     display: flex;
     flex-direction: row;

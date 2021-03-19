@@ -1,22 +1,44 @@
 import React from 'react';
 import VideoList from '../../components/VideoList';
 import DetailContent from './DetailContent';
-import { useFetch } from '../../components/useFetch';
+
+import { useVideoSearch } from '../../providers/VideoSearch';
 
 function VideoDetailsPage() {
-  const { hasErrors, isLoaded, items } = useFetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=wizeline&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+  const {
+    relatedVideos,
+    selectedVideo,
+    search,
+    setItems
+  }  = useVideoSearch();
 
+  // const reloadedPage = async () => {
+  //   try {
+  //     const res = await fetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=wizeline&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+  //     const json = await res.json();
+  //     setItems(json.items);
+  //   } catch (error) {
+  //     setItems(null);
+  //   }
+  // }
+
+  // if (relatedVideos.length === 0) {
+  //   console.log(relatedVideos.length);
+  //   reloadedPage();
+  // }
+
+  console.log(relatedVideos);
+  console.log(selectedVideo);
   return (
     <section className ="detailPage">
-    {items ? 
       <>
-      <div className = "rigthSide">
-        <DetailContent videoData ={items} />
-      </div>
-      <div className = "leftSide">
-        <VideoList items={items} isLoaded={isLoaded} hasErrors={hasErrors} sideList = 'sideList' />
-      </div> </> :""
-    }
+        <div className = "rigthSide">
+          <DetailContent videoInfo ={selectedVideo} />
+        </div>
+        <div className = "leftSide">
+          <VideoList sideList = 'sideList' />
+        </div>
+      </>
     </section>
   );
 }

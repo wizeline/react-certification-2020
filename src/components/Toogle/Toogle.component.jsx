@@ -1,16 +1,23 @@
 import React from 'react';
-import { Label, Container } from './styled';
-
+import { Label, Container, DarkMode } from './styled';
+import { ThemeContext } from '../../state/theme-context';
 
 const Toggle = () => {
+  const { theme, toggle } = React.useContext(ThemeContext)
 
   return (
-    <Container>
-      <Label className="switch">
-        <input type="checkbox"  />
-        <span className="slider round"></span>
-      </Label>
-    </Container>
+      <Container>
+        <Label className="switch">
+          <input type="checkbox"  onClick={toggle}
+            style={{
+              backgroundColor: theme.backgroundColor,
+              color: theme.color,
+              outline: 'none'
+            }} />
+          <span className="slider round"></span>
+        </Label>
+        <DarkMode>Dark Mode</DarkMode>
+      </Container>
   )
 }
 

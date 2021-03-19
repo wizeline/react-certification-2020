@@ -19,10 +19,10 @@ export const Global = createGlobalStyle`
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.00833em;
-    color: white;
+    color: ${(props) => props.color};
   }
   main {
-    background-color: #303030;
+    background-color: ${(props) => props.backgroundColor};
   }
   .detailPage {
     width: 100%;

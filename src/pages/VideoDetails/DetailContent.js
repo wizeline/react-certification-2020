@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useAddToFavorites } from '../../components/useAddToFavorites';
 import { BoxInfo, BoxText, DetailPage, Title, AddFavorite } from './styled';
 
-function DetailContent(videoData) {
-    let { id } = useParams();
-    let videoSrc = `https://www.youtube.com/embed/${id}?controls=0&autoplay=0`;
+function DetailContent(videoInfo) {
+  let { id } = useParams();
+  let videoSrc = `https://www.youtube.com/embed/${id}?controls=0&autoplay=0`;
 
-    const videoInfo = videoData.find(function(post) {
-        if(post.id.videoId === id)
-        return true;
-    });
-    const [label, handleChange] = useAddToFavorites();
+  const [label, handleChange] = useAddToFavorites();
+  if(!videoInfo.videoInfo) {
+    return <div>loading...</div>
+  }
+
   return (
     <div>
         <iframe
@@ -26,17 +26,15 @@ function DetailContent(videoData) {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             className ="youtubeFrame"
         />
-        {videoInfo ?
-            <BoxInfo>
-                <DetailPage>
-                    <Title>{videoInfo.snippet.title}</Title>
-                    <AddFavorite>
-                        <button onClick={() => handleChange()}>{label}</button>
-                    </AddFavorite>
-                </DetailPage>
-                <BoxText>{videoInfo.snippet.description}</BoxText>
-            </BoxInfo> :""
-        }
+        <BoxInfo>
+            <DetailPage>
+                <Title>{videoInfo.videoInfo.snippet.title}</Title>
+                <AddFavorite>
+                    <button onClick={() => handleChange()}>{label}</button>
+                </AddFavorite>
+            </DetailPage>
+            <BoxText>{videoInfo.videoInfo.snippet.description}</BoxText>
+        </BoxInfo> 
     </div>
   );
 }
