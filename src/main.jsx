@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './header.jsx';
 import Body from './body.jsx';
 
-function Main(){
+function HomeView(){
     return(
         <div>
             <div>

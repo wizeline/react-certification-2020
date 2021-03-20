@@ -23,7 +23,7 @@ margin-top: 80px;
     `;
     export const Vid = styled.div`
     display: flex;
-justify-content: center;
+    justify-content: center;
   flex-wrap: wrap;
   margin-top: 100px;
   margin-left: auto;
