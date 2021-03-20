@@ -7,15 +7,17 @@ import React from 'react'
 import SideMenu from '../SideMenu/SideMenu';
 import { useDisclosure, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
+import Title from '../Title/Title';
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef()
+
     return (
         <>
             <Flex bg="blue.50" alignItems={"center"}>
-                <HamburgerIcon cursor="pointer" ref={btnRef} ml="2" onClick={onOpen} />
-                <Text ml="2" fontSize="3xl" colorScheme={'whiteAlpha'}>DuTube</Text>
+                <HamburgerIcon cursor="pointer" ref={btnRef} ml="2" mr="2" onClick={onOpen} />
+                <Title/>
                 <Box mx="auto" w="40%">
                     <Input bg="white" placeholder="Search..." />
                 </Box>
@@ -25,7 +27,7 @@ const Navbar = () => {
                         <Text mr="2">Jesús Duarte</Text>
                     </Link>
                 </NextLink>
-                <Box mr="2">
+                <Box mr="2" >
                     <CgProfile size={50} />
                 </Box>
             </Flex>
