@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.0",
@@ -13,10 +14,19 @@
     "@emotion/styled": "^11.0.0",
     "framer-motion": "^2.9.4",
     "next": "latest",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "styled-components": "^5.2.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/dom": "^7.30.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "jest-dom": "^4.0.0"
+  }
 }
