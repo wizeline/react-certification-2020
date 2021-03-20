@@ -1,4 +1,4 @@
-import Navbar from "../Navbar/Navbar"
+import Navbar from "../Navbar/NavBar.jsx"
 import Wrapper from "../Wrapper/Wrapper"
 
 const Layout = ({ children }) => {
