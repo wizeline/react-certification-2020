@@ -1,15 +1,15 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Home from './components/Layout/Layout';
-import 'antd/dist/antd.css'
+// import './global.css';
+// import Header from '../src/pages/Header/Header';
+// import Home from './pages/Home/Layout/Layout';
+// import 'antd/dist/antd.css'
 
-function App() {
-  return (
-    <div>
-      <Header/>
-      <Home/>
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div>
+//       <Header/>
+//       <Home/>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
