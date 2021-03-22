@@ -1,12 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../providers/Auth';
-import { LayoutGeneral, WelcomeSection, VideosList } from './Home.styles';
+import { WelcomeSection, VideosList } from './Home.styles';
+import videosListJSON from '../../mock.json';
 
 function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
+  const [videosList, setVideosList] = useState([]);
 
   function deAuthenticate(event) {
     event.preventDefault();
@@ -14,16 +16,25 @@ function HomePage() {
     history.push('/');
   }
 
+  useEffect(() => {
+    setVideosList(videosListJSON.items);
+  });
+
   return (
-    <LayoutGeneral ref={sectionRef}>
+    <div ref={sectionRef}>
       <WelcomeSection>
         <h1>Welcome to the challenge!</h1>
       </WelcomeSection>
       <VideosList>
-        <div>
-          <h2>Title</h2>
-          <p>Description</p>
-        </div>
+        {videosList.map((video) => {
+          return (
+            <div>
+              <img src={video.snippet.thumbnails} alt="VideoImage" />
+              <h3>{video.snippet.title} :</h3>
+              <p>{video.snippet.description}</p>
+            </div>
+          );
+        })}
       </VideosList>
       {authenticated ? (
         <>
@@ -41,7 +52,7 @@ function HomePage() {
       ) : (
         <Link to="/login">let me in →</Link>
       )}
-    </LayoutGeneral>
+    </div>
   );
 }
 

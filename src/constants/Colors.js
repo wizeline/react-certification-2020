@@ -1,6 +1,7 @@
 //  Light mode Colors
 export const White = '#F2F2F2';
 export const GrayLight = '#BDBFBF';
+export const GrayLight2 = '#E4E4E4';
 export const GrayMed = '#595959';
 export const Red = '#D90404';
 export const DarkRed = '#590A0A';

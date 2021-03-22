@@ -1,34 +1,26 @@
 import React from 'react';
-import { Switch, Input, Avatar, Dropdown, Menu } from 'antd';
-import { UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { Switch, Input, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import { HeaderGeneral, LogSec, SearchSec } from './Header.Style';
+import wizLogo from '../../utils/assets/Wizeline.png';
 
 const Header = () => {
   const { Search } = Input;
   function onChange(checked) {
     console.log(`switch to ${checked}`);
   }
-  const menu = () => {
-    <Menu>
-      <Menu.Item key="0">
-        <a target="_blank" rel="noopener noreferrer" href="/">
-          Home
-        </a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a target="_blank" rel="noopener noreferrer" href="/">
-          Contacto
-        </a>
-      </Menu.Item>
-    </Menu>;
-  };
 
   return (
     <HeaderGeneral>
       <SearchSec>
-        <Dropdown overlay={menu}>
-          <MenuOutlined />
-        </Dropdown>
+        <Link to="/">
+          <img
+            style={{ width: '30%', height: 'auto' }}
+            alt="WizelineLogo"
+            src={wizLogo}
+          />
+        </Link>
         <Search placeholder="Wizeline" style={{ width: 200, margin: ' 0 5% ' }} />
       </SearchSec>
       <LogSec>
@@ -36,7 +28,9 @@ const Header = () => {
           <Switch defaultChecked onChange={onChange} />
           <h5>To Dark Side</h5>
         </div>
-        <Avatar size={40} icon={<UserOutlined />} />
+        <Link to="/login">
+          <Avatar size={40} icon={<UserOutlined />} />
+        </Link>
       </LogSec>
     </HeaderGeneral>
   );

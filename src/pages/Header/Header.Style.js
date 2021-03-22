@@ -18,6 +18,10 @@ const LogSec = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  & > Link p {
+    background-color: purple;
+    justify-content: center;
+  }
   & > div {
     display: flex;
     justify-content: space-evenly;
