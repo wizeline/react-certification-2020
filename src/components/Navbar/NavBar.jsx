@@ -4,10 +4,10 @@ import { Box, Flex, Text } from '@chakra-ui/layout'
 import { Switch } from '@chakra-ui/switch'
 import { CgProfile } from 'react-icons/cg';
 import React from 'react'
-import SideMenu from '../SideMenu/SideMenu';
-import { useDisclosure, Link } from "@chakra-ui/react";
-import NextLink from "next/link";
-import Title from '../Title/Title';
+import SideMenu from '../SideMenu/SideMenu'
+import { useDisclosure, Link } from "@chakra-ui/react"
+import NextLink from "next/link"
+import Title from '../Title/Title'
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
