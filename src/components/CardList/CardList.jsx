@@ -12,7 +12,7 @@ const CardList = () => {
     }
 
     useEffect(() => {
-        fetchData();
+        fetchData()
         console.log(data)
     },[])
     return (
