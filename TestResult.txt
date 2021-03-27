@@ -1,0 +1,20 @@
+ PASS  src/components/CardList/CardList.test.jsx
+ PASS  src/components/Title/Title.test.jsx  
+ PASS  src/components/Navbar/NavBar.test.jsx
+---------------|---------|----------|---------|---------|-------------------
+File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------|---------|----------|---------|---------|-------------------
+All files      |     100 |      100 |     100 |     100 |                   
+ Navbar        |     100 |      100 |     100 |     100 | 
+  NavBar.jsx   |     100 |      100 |     100 |     100 | 
+ SideMenu      |     100 |      100 |     100 |     100 | 
+  SideMenu.jsx |     100 |      100 |     100 |     100 | 
+ Title         |     100 |      100 |     100 |     100 | 
+  Title.jsx    |     100 |      100 |     100 |     100 | 
+---------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        4.997 s
+Ran all test suites.
