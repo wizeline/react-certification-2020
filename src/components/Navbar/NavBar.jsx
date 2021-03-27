@@ -7,19 +7,31 @@ import React from 'react'
 import SideMenu from '../SideMenu/SideMenu'
 import { useDisclosure, Link } from "@chakra-ui/react"
 import NextLink from "next/link"
-import Title from '../Title/Title'
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+    const router = useRouter()
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef()
+
+    const submitHandler = (e) => {
+        e.key === "Enter" && router.push({
+                pathname: "/",
+                query: {search: e.target.value}
+            })
+    }
 
     return (
         <>
             <Flex bg="blue.50" alignItems={"center"}>
                 <HamburgerIcon cursor="pointer" ref={btnRef} ml="2" mr="2" onClick={onOpen} />
-                <Title/>
+                <NextLink href="/">
+                    <Link>
+                        <Text fontSize="3xl">Dutube</Text>    
+                    </Link>
+                </NextLink>
                 <Box mx="auto" w="40%">
-                    <Input bg="white" placeholder="Search..." />
+                    <Input onKeyUp={(e) => submitHandler(e)} bg="white" placeholder="Search..." />
                 </Box>
                 <Switch mr="2"/>
                 <NextLink href="/">

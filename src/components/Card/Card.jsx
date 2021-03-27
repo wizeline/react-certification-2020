@@ -1,19 +1,28 @@
-import { StarIcon } from '@chakra-ui/icons'
 import { Image } from '@chakra-ui/image'
 import { Badge, Box } from '@chakra-ui/layout'
+import { useRouter } from "next/router"
 import React from 'react'
 
-const Card = ({item, index}) => {
+const Card = ({item}) => {
+    const router = useRouter();
     const property = {
-        imageUrl: item.snippet.thumbnails.default.url,
-        imageAlt: "Rear view of modern home with pool",
-        title: item.snippet.channelTitle,
-        reviewCount: 34,
-        rating: 4,
+        videoId: item.id.videoId,
+        imageUrl: item.snippet.thumbnails.high.url,
+        imageAlt: "youtube image",
+        title: item.snippet.title,
+        channelTitle: item.snippet.channelTitle,
+        description: item.snippet.description
       }
+
+    const videoHandler = () => {
+        router.push({
+            pathname: "/videoPlayer",
+            query: property
+        })
+    }
     
     return (
-        <Box key={index} maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <Box key={property.videoId} onClick={videoHandler} cursor="pointer" maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
             <Image width="100%" maxW="382px" maxHeight="286px" src={property.imageUrl} alt={property.imageAlt} />
 
             <Box p="6">
@@ -32,19 +41,8 @@ const Card = ({item, index}) => {
             >
                 {property.title}
             </Box>
-
-            <Box d="flex" mt="2" alignItems="center">
-                {Array(5)
-                .fill("")
-                .map((_, i) => (
-                    <StarIcon
-                    key={i}
-                    color={i < property.rating ? "teal.500" : "gray.300"}
-                    />
-                ))}
-                <Box as="span" ml="2" color="gray.600" fontSize="sm">
-                {property.reviewCount} reviews
-                </Box>
+            <Box as="span" color="gray.600" fontSize="sm">
+                {property.channelTitle} 
             </Box>
             </Box>
         </Box>

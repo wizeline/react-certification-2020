@@ -1,25 +1,33 @@
-import { Flex, Grid } from '@chakra-ui/layout';
+import { Flex, Grid } from '@chakra-ui/layout'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import fetchData from '../../utils/useFetchData'
 import Card from '../Card/Card'
 
-const CardList = () => {
+const CardList = ({list, IdVid}) => {
     const [data, setData] = useState()
+    const { query } = useRouter()
+    const { search } = query
+    let result = {}
+    useEffect(async () => {
+        if (IdVid) {
+            result = search ?  await fetchData.get("/search", {params: {q: search}}) : await fetchData.get("/search", {params: {relatedToVideoId: IdVid}})
+        } else {
+            result = search ?  await fetchData.get("/search", {params: {q: search}}) : await fetchData.get("/search")
+        }
+        console.log(result.data)
+        setData(result.data)
 
-    const fetchData = async () => {
-        const res = await fetch("https://gist.githubusercontent.com/jparciga/1d4dd34fb06ba74237f8966e2e777ff5/raw/f3af25f1505deb67e2cc9ee625a633f24d8983ff/youtube-videos-mock.json")
-        const result = await res.json()
-        setData(result)
-    }
+        return function cleanup() {
+            search = ""
+        }
+    },[search])
 
-    useEffect(() => {
-        fetchData()
-        console.log(data)
-    },[])
     return (
-        <Grid templateColumns={{"md": "repeat(3, 1fr)", "sm": "repeat(1, 1fr)"}} mb={5} gap={1}>
-            {!data ? "hola" : data.items.map((item,index) => {
+        <Grid templateColumns={!list?{"md": "repeat(3, 1fr)", "sm": "repeat(1, 1fr)"}:"repeat(1, 1fr)"} mb={5} gap={1}>
+            {!data ? "hola" : data.items.map((item) => {
                 return (
-                    <Card item={item} index={index} />
+                    <Card key={item.id.videoId} item={item}/>         
                 )
             })}
         </Grid>
