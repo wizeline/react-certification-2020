@@ -1,33 +1,41 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-display: flex;
+border: 10px ;
+display: static;
 justify-content: center;
-margin-top: 80px;
+margin-top: 0px;
+
 
 `;
 
     export const Title = styled.h1`
-    
-    font-size: 50px;
+        
     color: black;
     font-family: sans-serif;
-    justify-content: center;
-    position:absolute;
-    margin-bottom: 25px;
-    text-align-last: center;
-    margin-top: 0px;
+    
+    
+    @media (min-width: 600px){
+      margin-bottom: 25px;
+      margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 70px;
+    justify-content: center;
+    text-align-last: center;
+    }
+    
+    
+    
     
     `;
     export const Vid = styled.div`
     display: flex;
     justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
   
   
  
@@ -45,12 +53,14 @@ margin-top: 80px;
   padding: 9px 10px;
     `;
 
-    export const Parag = styled.p`
+    export const Parag = styled.div`
     margin-top: 12px;
   font-size: 18px;
   color: black;
   text-align: left;
   font-family: sans-serif;
+  
+
   
     `;
     export const IMG = styled.img`
@@ -64,11 +74,17 @@ margin-top: 80px;
     font-size: 22px;
   font-weight: bold;
   
+  
     `;
 
     export const Secondary = styled.p`
     font-size: 18px;
   color: rgba(136, 134, 134, 0.7);
+  overflow:hidden;
+  
+  @media (min-width: 600px){
+  
+  white-space: pre-line;}
     `;
     
    

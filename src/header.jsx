@@ -1,21 +1,36 @@
-import React from 'react';
+
 import {Input, Head} from './components/header.js';
 import ToggleSwitch from './components/toggleswitch.js';
 import Menu from './components/menu.js';
 import  Login from './components/login.js';
+import React, { useState } from "react";
 
-function Header() {
+
+function Header({setValueFinal}) {
+    
+    const [value, setValue] = useState("wizeline");
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            submitValue()
+        }
+      }
+
+      const submitValue = () => {
+       console.log(value);
+        setValueFinal(value);
+    }
+   
     return (
-
-        <div>
-            <Head>
+            <Head >
             <Menu></Menu>
-            <Input  placeholder="Search..."   />
+          
+            <Input  placeholder="Search..." 
+            value={value} onChange={e => setValue(e.target.value)}
+            onKeyDown={handleKeyDown} />
             <ToggleSwitch></ToggleSwitch>
             <Login></Login>
-            </Head>
-
-        </div>
+            </Head>    
 
     )
 };
