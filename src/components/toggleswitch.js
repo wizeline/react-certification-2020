@@ -1,20 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 
- function ToggleSwitch() {
+function ToggleSwitch() {
     const CheckBoxWrapper = styled.div`
-    float: right;
+    right: 10px;
     margin:20px 200px 0px 0px;
     position:absolute;
-    right: 10px;
+    @media (min-width: 600px){
+      
+      flex-direction: row ;
+      
+    }
 `;
  const CheckBoxLabel = styled.label`
   float: right;
   right: 10px;
   left: 0;
-  flex-wrap: wrap;
+  
+  @media (min-width: 600px){
   width: 42px;
   height: 26px;
+  flex-wrap: wrap;
+  }
   border-radius: 15px;
   background: #bebebe;
   cursor: pointer;
@@ -33,11 +40,14 @@ import styled from 'styled-components'
 const CheckBox = styled.input`
   opacity: 0;
   position:absolute;
-    right: 10px;
+  right: 10px;
   z-index: 1;
-  border-radius: 15px;
-  width: 42px;
-  height: 26px;
+  @media (min-width: 600px){
+    border-radius: 15px;
+    width: 42px;
+    height: 26px;
+  }
+ 
   &:checked + ${CheckBoxLabel} {
     background: #4fbe79;
     &::after {
@@ -54,10 +64,13 @@ const CheckBox = styled.input`
 
 const Label = styled.label`
 float: right;
-font-size: 18px;
-margin: .1em;
-margin-left: 21px;
+
 font-family: sans-serif;
+@media (min-width: 600px){
+  font-size: 18px;
+  margin: .1em;
+  margin-left: 21px;
+}
 
 `;
 

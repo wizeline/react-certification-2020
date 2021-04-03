@@ -7,7 +7,6 @@ function Menu() {
   background-color: #117a65;
   border-radius: 999999px;
   height: 35px;
-  width: 35px;
   opacity: 0.5;
   align-items: center;
   justify-content: center;
@@ -16,6 +15,9 @@ function Menu() {
   float: left;
   padding: .5em ;
   margin: .4em;  
+  @media (min-width: 600px){
+    width: 5%;
+  }
   &{div}:hover & {
     background-color: #074b3d;
     opacity: 0.5;
