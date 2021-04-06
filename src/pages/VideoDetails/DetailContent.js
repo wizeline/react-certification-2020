@@ -1,19 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAddToFavorites } from '../../components/useAddToFavorites';
-import { BoxInfo, BoxText, DetailPage, Title, AddFavorite } from './styled';
+import { Page, BoxInfo, BoxText, DetailPage, Title, AddFavorite } from './styled';
+import { ThemeContext } from '../../state/theme-context';
 
 function DetailContent(videoInfo) {
   let { id } = useParams();
   let videoSrc = `https://www.youtube.com/embed/${id}?controls=0&autoplay=0`;
 
   const [label, handleChange] = useAddToFavorites();
+  const { theme } = React.useContext(ThemeContext);
+
   if(!videoInfo.videoInfo) {
     return <div>loading...</div>
   }
 
   return (
-    <div>
+    <Page color ={theme.color} videoCardBackgroundColor = {theme.videoCardBackgroundColor}>
         <iframe
             id="ytplayer"
             type="text/html" 
@@ -28,14 +31,14 @@ function DetailContent(videoInfo) {
         />
         <BoxInfo>
             <DetailPage>
-                <Title>{videoInfo.videoInfo.snippet.title}</Title>
-                <AddFavorite>
-                    <button onClick={() => handleChange()}>{label}</button>
+                <Title videoCardColor = {theme.color} >{videoInfo.videoInfo.snippet.title}</Title>
+                <AddFavorite videoCardColor = {theme.color} >
+                    <button onClick={() => handleChange(videoInfo.videoInfo)}>{label}</button>
                 </AddFavorite>
             </DetailPage>
-            <BoxText>{videoInfo.videoInfo.snippet.description}</BoxText>
+            <BoxText videoCardColor = {theme.color} >{videoInfo.videoInfo.snippet.description}</BoxText>
         </BoxInfo> 
-    </div>
+    </Page>
   );
 }
 

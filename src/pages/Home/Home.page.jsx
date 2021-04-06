@@ -18,10 +18,8 @@ const HomePage = () => {
     setRelatedVideos
   } = useVideoSearch();
 
-  //const history = useHistory();
   const sectionRef = useRef(null);
-  //const { authenticated, logout } = useAuth();
-  const { authenticated } = useAuth();
+  const { authenticated, logout } = useAuth();
   //const [ searchVideo ] = useSearchVideo();
   //const searchQuery = typeof searchVideo === 'string' && searchVideo === "" ? "wizeline" : searchVideo ;
   //const { hasErrors, isLoaded, items } = useFetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=${searchQuery}&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
@@ -41,20 +39,14 @@ const HomePage = () => {
     setSearch('wizeline');
     firstSearch();
   }
-/*
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
-*/
+
   return (
     <section ref={sectionRef}>
       <h2 className = "welcome">Welcome to the Challenge!</h2>
       {authenticated ? (
         <VideoList items={items} />
       ) : (
-        <Link to="/login">let me in →</Link>
+        <Link to="/login" className= "toLogin" >let me in →</Link>
       )}
     </section>
   );

@@ -53,6 +53,19 @@ export const Global = createGlobalStyle`
       flex-wrap: wrap;
     }
   }
+  .noFavs {
+    background-color: white;
+  }
+  .toLogin {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
   .youtubeFrame {
     border-width: 2px;
     border-style: inset;

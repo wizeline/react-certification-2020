@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: ${(props) => props.videoCardBackgroundColor};
+`;
+
 export const DetailPage = styled.div`
     width: 100%;
     height: 100%;
@@ -7,7 +14,7 @@ export const DetailPage = styled.div`
     flex-direction: row;
 `;
 export const Title = styled.h2`
-    color: #fff;
+    color: ${(props) => props.videoCardColor};
     width: 75%;
     height: 100%;
     position: relative;
@@ -21,7 +28,7 @@ export const BoxInfo = styled.div `
 export const BoxText = styled.p`
   margin-top: 0.35em;
   word-wrap: break-word;
-  color: rgba(255, 255, 255, 0.7);
+  color: ${(props) => props.videoCardColor};
   font-size: 0.875rem;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
@@ -33,7 +40,7 @@ export const BoxText = styled.p`
 
 export const AddFavorite = styled.div`
     button {
-      color: #fff;
+      color: ${(props) => props.videoCardColor};
       padding: 6px 16px;
       font-size: 0.875rem;
       min-width: 64px;
@@ -55,7 +62,7 @@ export const AddFavorite = styled.div`
     }
     button:hover {
       background-color: rgba(255, 255, 255, 0.10);
-      color: white;
+      color: ${(props) => props.videoCardColor};
       border: 0;
     }
 `;

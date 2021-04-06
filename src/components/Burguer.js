@@ -8,7 +8,7 @@ const StyledBurger = styled.div`
   position: fixed;
   top: 15px;
   left: 20px;
-  z-index: 20;
+  z-index: 100;
   display: none;
   @media (min-width: 320px) {
     display: flex;
@@ -22,6 +22,7 @@ const StyledBurger = styled.div`
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+    z-index: 100;
     &:nth-child(1) {
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
@@ -45,7 +46,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <LeftNav open={open}/>
+      <LeftNav open={open} closeBurguer={() => setOpen(!open)}/>
     </>
   )
 };

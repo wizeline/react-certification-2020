@@ -1,5 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
+//import { HashRouter as Router, Route , useParams,useRouteMatch, useHistory, Redirect} from "react-router-dom";
+
 import GlobalStyle from '../../globalStyles';
 import { ThemeContext } from '../../state/theme-context';
 
@@ -10,6 +12,7 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import VideoDetails from '../../pages/VideoDetails';
+import Favorites from '../../pages/Favorites';
 import Private from '../Private';
 import Layout from '../Layout';
 
@@ -29,6 +32,9 @@ function App() {
               </Route>
               <Route exact path="/login">
                 <LoginPage />
+              </Route>
+              <Route exact path="/favorites">
+                <Favorites />
               </Route>
               <Private exact path="/secret">
                 <SecretPage />

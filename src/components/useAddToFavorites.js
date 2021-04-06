@@ -8,22 +8,24 @@ export const useAddToFavorites = () => {
   const remove = "remove";
   let { id } = useParams();
   const getArray = JSON.parse(localStorage.getItem('favorites'));
-  let action = getArray.find((videoId) => videoId === id) ? remove : add;
+
+  let action = getArray ? getArray.find((videoId) => videoId.FavId === id) ? remove : add : add;
   let label = action === add ? addFavorites : removeFavorites;
-  console.log(action);
   const [favorites, setFavorites] = useState(getArray ? getArray:[]);
 
-  const handleChange = () => {
+  const handleChange = ( videoInfo) => {
+    videoInfo.FavId = id;
     let array = favorites;
+    console.log(action);
     if (action === add) {
-      array.push(id);
+      array.push(videoInfo);
       setFavorites([...array]);
       localStorage.setItem("favorites", JSON.stringify(favorites));
       label = removeFavorites;
       action = remove;
     } else {
       var filtered = array.filter(function(value, index, arr) {
-        return value !== id;
+        return value.FavId !== id;
       });
       localStorage.setItem("favorites", JSON.stringify(filtered));
       setFavorites([...filtered]); 
