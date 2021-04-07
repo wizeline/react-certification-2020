@@ -6,10 +6,7 @@ import { useVideoSearch } from '../../providers/VideoSearch';
 
 function VideoDetailsPage() {
   const {
-    relatedVideos,
-    selectedVideo,
-    search,
-    setItems
+    selectedVideo
   }  = useVideoSearch();
 
   // const reloadedPage = async () => {
@@ -26,9 +23,6 @@ function VideoDetailsPage() {
   //   console.log(relatedVideos.length);
   //   reloadedPage();
   // }
-
-  console.log(relatedVideos);
-  console.log(selectedVideo);
   return (
     <section className ="detailPage">
       <>

@@ -11,11 +11,9 @@ export const Search = (url) => {
 
   const {
     search,
-    selectedVideo,
     setSearch,
     setItems,
-    setSelectedVideo,
-    setRelatedVideos,
+    setSelectedVideo
   } = useVideoSearch();
 
   const handleChange = (event) => {
@@ -25,7 +23,7 @@ export const Search = (url) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if(search!='') {
+    if(search !== '') {
       try {
         const res = await fetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=${search}&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
         const json = await res.json();

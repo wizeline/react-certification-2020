@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useVideoSearch } from '../../providers/VideoSearch';
 import VideoList from '../../components/VideoList';
-import { useFetch } from '../../components/useFetch';
-import { useSearchVideo } from '../../components/useSearchVideo';
 import { useAuth } from '../../providers/Auth';
 
 const HomePage = () => {
@@ -13,13 +11,11 @@ const HomePage = () => {
     items,
     setItems,
     setSearch,
-    selectedVideo,
-    setSelectedVideo,
     setRelatedVideos
   } = useVideoSearch();
 
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const { authenticated } = useAuth();
   //const [ searchVideo ] = useSearchVideo();
   //const searchQuery = typeof searchVideo === 'string' && searchVideo === "" ? "wizeline" : searchVideo ;
   //const { hasErrors, isLoaded, items } = useFetch(`${process.env.REACT_APP_YOUTUBE_SEARCH}?q=${searchQuery}&part=id&part=snippet&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
@@ -35,7 +31,7 @@ const HomePage = () => {
     }
   }
 
-  if (search == '') {
+  if (search === '') {
     setSearch('wizeline');
     firstSearch();
   }

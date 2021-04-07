@@ -7,7 +7,6 @@ const VideoList = ({ sideList }) => {
   const {
     items,
     search,
-    selectedVideo,
     setSelectedVideo,
     setRelatedVideos
   } = useVideoSearch();

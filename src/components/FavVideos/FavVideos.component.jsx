@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { Box, BoxImage, BoxInfo, BoxTitle, BoxText, BoxFavs } from './styled';
+import { Box, BoxImage, BoxInfo, BoxTitle, BoxText } from './styled';
 import { ThemeContext } from '../../state/theme-context';
 
 const NoImage = require('../VideoList/noimage.jpg');

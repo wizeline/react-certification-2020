@@ -6,9 +6,7 @@ import { useVideoSearch } from '../../providers/VideoSearch';
 function FavoritesPage() {
 
   const {
-    search,
-    setSelectedVideo,
-    setRelatedVideos
+    setSelectedVideo
   } = useVideoSearch();
   
   const handleVideoSelected = async (video) => {

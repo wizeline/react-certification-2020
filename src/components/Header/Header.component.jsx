@@ -9,7 +9,7 @@ import { ThemeContext } from '../../state/theme-context';
 
 
 const Header = () => {
-  const { theme, toggle, dark } = React.useContext(ThemeContext);
+  const { theme } = React.useContext(ThemeContext);
   return (
     <Container headerColor={theme.headerColor} >
       <Navbar />
