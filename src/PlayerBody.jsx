@@ -4,7 +4,7 @@ import ReadElements from "./VideoListElements.jsx";
 import {Container} from './components/VideoPlayer.js';
 import Header from './header.jsx';
 
-function PlayerBody({title, description, videoId, videoList,setValueFinal}){
+function PlayerBody({title, description, videoId, videoList}){
 
     const [videoData, setVideoData] = useState({title: title, description: description, videoId: videoId});
 

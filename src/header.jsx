@@ -4,11 +4,17 @@ import ToggleSwitch from './components/toggleswitch.js';
 import Menu from './components/menu.js';
 import  Login from './components/login.js';
 import React, { useState } from "react";
+import { useContext } from 'react';
+import ThemeContext from './ThemeContext';
+//import {checked} from './components/Functions.js';
 
 
-function Header({setValueFinal}) {
-    
+function Header() {
+        
     const [value, setValue] = useState("wizeline");
+
+    const { setValueFinal } = useContext(ThemeContext);
+    
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -17,18 +23,17 @@ function Header({setValueFinal}) {
       }
 
       const submitValue = () => {
-       console.log(value);
         setValueFinal(value);
     }
    
     return (
-            <Head >
+            <Head>
             <Menu></Menu>
           
             <Input  placeholder="Search..." 
             value={value} onChange={e => setValue(e.target.value)}
             onKeyDown={handleKeyDown} />
-            <ToggleSwitch></ToggleSwitch>
+            <ToggleSwitch  ></ToggleSwitch>
             <Login></Login>
             </Head>    
 

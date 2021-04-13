@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function Menu() {
   
   const Circle = styled.div`
-  background-color: #117a65;
+  background-color: #0c819c;
   border-radius: 999999px;
   height: 35px;
   opacity: 0.5;
@@ -18,10 +18,7 @@ function Menu() {
   @media (min-width: 600px){
     width: 5%;
   }
-  &{div}:hover & {
-    background-color: #074b3d;
-    opacity: 0.5;
-  }
+ 
   `;
   const Lines = styled.div`
     width: 20px;
@@ -29,6 +26,10 @@ function Menu() {
     background-color:white;
     margin: 3px ;
     transition: 0.4s;
+    ${Circle}:hover & {
+      background-color: #074b3db;
+    opacity: 0.5;
+    }
   `;
     return(
     <Circle>

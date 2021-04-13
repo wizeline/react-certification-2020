@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
+
 export const Container = styled.div`
 border: 10px ;
 display: static;
 justify-content: center;
 margin-top: 0px;
-
-
 `;
 
     export const Title = styled.h1`
