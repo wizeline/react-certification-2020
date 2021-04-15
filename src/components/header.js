@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Head = styled.head`
-background: #117a65;
+background: #0c819c;
 color: white;
 margin: 0;
 height: auto;
