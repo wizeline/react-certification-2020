@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import Player from "./videoplayer.jsx";
 import ReadElements from "./VideoListElements.jsx";
 import {Container} from './components/VideoPlayer.js';
-import Header from './header.jsx';
+//import Header from './header.jsx';
+//import SearchContext from './SearchContext';
 
 function PlayerBody({title, description, videoId, videoList}){
 
     const [videoData, setVideoData] = useState({title: title, description: description, videoId: videoId});
+    
 
     return(
         

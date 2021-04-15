@@ -1,25 +1,34 @@
-import React, { useContext } from 'react'
+import React, { useContext, useReducer } from 'react'
 import styled from 'styled-components'
-import ThemeContext from '../ThemeContext';
+import Context from '../components/Context';
+//import {initialState, reducer} from '../components/Reducer';
 
 function ToggleSwitch() {
-
  
-  const { setDarkMode } = useContext(ThemeContext);
-
-  function checked(){
-    if(document.getElementById("checkbox").checked == true){  
-      setDarkMode(true);
-      const colors = { }
-
-  }else{
-    setDarkMode(false)
-  }
-}
+ // const{currentTheme} = state;
+const {dispatch } = useContext(Context);
   
+ //true is darkMode
+//   function change(){
+    
+//     if(document.getElementById("checkbox").checked == true){  
+//       setDarkMode(true);
+//       dispatch({type: "dark"});
+//       alert();
+      
+//   }else{
+//     setDarkMode(false);
+//     dispatch({type: "light"});
+//   }
+// };
 
-
-    const CheckBoxWrapper = styled.div`
+const change = () => {
+  
+ dispatch({ type: "TOGGLE_DARK_MODE" });
+ console.log("HOLA" +document.getElementById("checkbox").checked);
+ };
+  
+const CheckBoxWrapper = styled.div`
     right: 10px;
     margin:20px 200px 0px 0px;
     position:absolute;
@@ -93,8 +102,8 @@ font-family: sans-serif;
         return (
             <CheckBoxWrapper>
             <Label>Dark Mode!</Label>
-            <CheckBox id="checkbox" type="checkbox" onClick={checked} />
-            <CheckBoxLabel htmlFor="checkbox"></CheckBoxLabel>
+            <CheckBox id="checkbox" type="checkbox" onClick={change}/>
+            <CheckBoxLabel htmlFor="checkbox" ></CheckBoxLabel>
             </CheckBoxWrapper>
             
         )

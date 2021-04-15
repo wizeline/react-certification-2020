@@ -1,8 +1,8 @@
 import  { createContext } from "react";
 
- const ThemeContext = createContext({
-    darkMode: false,
-    setDarkMode: (dark) => {}
+ const SearchContext = createContext({
+    valueFinal: 'wizeline',
+    setValueFinal: (value) => {}
 });
 
-export default ThemeContext;
+export default SearchContext;

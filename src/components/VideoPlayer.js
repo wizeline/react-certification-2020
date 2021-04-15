@@ -23,7 +23,7 @@ export const PlayBox = styled.div`
 width: 100%; 
 max-width: 1000px; 
 height: 500px;
-background-color: red;
+
     
 `;
 
@@ -48,7 +48,6 @@ export const VideoDescription = styled.p`
 position:relative;
 margin-top: 12px;
 font-size: 18px;
-color: black;
 text-align: left;
 font-family: sans-serif;
 `;
@@ -78,7 +77,7 @@ width: 100px;
 
 export const VideoItems = styled.div`
 height: -80px;
-background-color: ;
+
 border-style: outset;
 `;
 export const IMG = styled.img`
@@ -90,7 +89,7 @@ export const IMG = styled.img`
 export const Parag = styled.div`
 left:130px;
 font-size: 18px;
-background-color: ;
+
 height: 100px;
 top: -15px;
 width: 80%;

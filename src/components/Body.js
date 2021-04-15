@@ -10,10 +10,8 @@ margin-top: 0px;
 
     export const Title = styled.h1`
         
-    color: black;
-    font-family: sans-serif;
-    
-    
+  
+    font-family: sans-serif;    
     @media (min-width: 600px){
       margin-bottom: 25px;
       margin-top: 0px;
@@ -23,10 +21,7 @@ margin-top: 0px;
     justify-content: center;
     text-align-last: center;
     }
-    
-    
-    
-    
+        
     `;
     export const Vid = styled.div`
     display: flex;
@@ -35,6 +30,7 @@ margin-top: 0px;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 10;
   
   
  
@@ -43,7 +39,7 @@ margin-top: 0px;
     export const VideoItems = styled.div`
     flex: ${props => props.ratio};
     height: 400px;
-  background-color: white;
+ 
   border-radius: 5px;
   border: 1px solid #ddd;
   margin: 10px;
@@ -55,7 +51,7 @@ margin-top: 0px;
     export const Parag = styled.div`
     margin-top: 12px;
   font-size: 18px;
-  color: black;
+  
   text-align: left;
   font-family: sans-serif;
   
@@ -78,7 +74,7 @@ margin-top: 0px;
 
     export const Secondary = styled.p`
     font-size: 18px;
-  color: rgba(136, 134, 134, 0.7);
+ 
   overflow:hidden;
   
   @media (min-width: 600px){
