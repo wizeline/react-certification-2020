@@ -15,6 +15,7 @@ const Card = ({item}) => {
       }
 
     const videoHandler = () => {
+        console.log(property)
         router.push({
             pathname: "/videoPlayer",
             query: property
@@ -27,7 +28,7 @@ const Card = ({item}) => {
 
             <Box p="6">
             <Box d="flex" alignItems="baseline">
-                <Badge borderRadius="full" px="2" colorScheme="teal">
+                <Badge borderRadius="full" px="2" color="teal">
                 New
                 </Badge>
             </Box>
