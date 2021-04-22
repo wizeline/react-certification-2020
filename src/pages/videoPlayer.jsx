@@ -4,17 +4,15 @@ import React, { useEffect } from 'react'
 import CardList from '../components/CardList/CardList'
 import Layout from '../components/Layout/Layout'
 import Video from '../components/Video/Video'
-import DataProvider from '../state/DataProvider'
+import DataProvider, { useData } from '../state/DataProvider'
 
 const videoPlayer = () => {
-    const { query } = useRouter()
-    const { videoId, title, description } = query
-    
+    const {data, _} = useData()
     return (
         <Flex>
-            <Video videoId={videoId} title={title} description={description} />
+            <Video/>
             <Box w="sm">
-                <CardList list={true} IdVid={videoId} />
+                <CardList list={true} IdVid={data.player.id.videoId} />
             </Box>
         </Flex>
             

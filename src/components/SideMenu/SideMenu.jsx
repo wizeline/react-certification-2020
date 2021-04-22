@@ -1,9 +1,13 @@
 import { Button } from '@chakra-ui/button'
 import { Input } from '@chakra-ui/input'
+import { Box, Link, Text } from '@chakra-ui/layout'
 import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay } from '@chakra-ui/modal'
 import React from 'react'
+import NextLink from 'next/link'
+import { useData } from '../../state/DataProvider'
 
 const SideMenu = ({isOpen, onClose, btnRef}) => {
+  const {data, _} = useData()
     return (
         <Drawer
         isOpen={isOpen}
@@ -18,6 +22,13 @@ const SideMenu = ({isOpen, onClose, btnRef}) => {
 
             <DrawerBody>
               <Input placeholder="Type here..." />
+              {!data.user ? null :
+                <NextLink href="/favorites">
+                  <Link>
+                    <Text>Favorites</Text>
+                  </Link>
+                </NextLink>
+              }
             </DrawerBody>
 
             <DrawerFooter>

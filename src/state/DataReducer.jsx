@@ -6,6 +6,36 @@ export default function reducer(state, action) {
           videos: action.payload,
         };
       }
+      case "ADD_FAVORITE": {
+        return {
+          ...state,
+          favorites: [...state.favorites, action.payload]
+        }
+      }
+      case "LOGIN": {
+        return {
+          ...state,
+          user: action.payload
+        }
+      }
+      case "LOGOUT": {
+        return {
+          ...state,
+          user: ""
+        }
+      }
+      case "CHANGE_PLAYER": {
+        return {
+          ...state,
+          player: action.payload
+        }
+      }
+      case "REMOVE_FAVORITE": {
+        return {
+          ...state,
+          favorites: action.payload
+        } 
+      }
       case "DARK_MODE":{
         return {
           ...state,

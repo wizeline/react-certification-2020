@@ -1,12 +1,13 @@
+import { useEffect } from "react"
 import CardList from "../components/CardList/CardList"
 import Layout from "../components/Layout/Layout"
-import DataProvider from "../state/DataProvider"
+import DataProvider, { useData } from "../state/DataProvider"
 
-const Index = () => (
-
-      <CardList/>
-
-  
-)
+const Index = () => {
+      
+      return (
+            <CardList/>
+      )
+}
 
 export default Index

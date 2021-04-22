@@ -5,7 +5,7 @@ import { Switch } from '@chakra-ui/switch'
 import { CgProfile } from 'react-icons/cg';
 import React from 'react'
 import SideMenu from '../SideMenu/SideMenu'
-import { useDisclosure, Link, useColorMode } from "@chakra-ui/react"
+import { useDisclosure, Link, useColorMode, Avatar } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { useRouter } from 'next/router';
 import { useData } from '../../state/DataProvider';
@@ -30,6 +30,12 @@ const Navbar = () => {
         })
     }
 
+    const logoutHandler = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
+    }
+
     return (
         <>
             <Flex bg={!data.darkMode ? "blue.50" : "black"} alignItems={"center"}>
@@ -43,13 +49,16 @@ const Navbar = () => {
                     <Input onKeyUp={(e) => submitHandler(e)} bg="white" placeholder="Search..." />
                 </Box>
                 <Switch onChange={switchHandler} mr="2"/>
-                <NextLink href="/">
+                <NextLink href={!data.user ? "/login" : "/"}>
                     <Link>
-                        <Text color={!data.darkMode ? "black" : 'white'} mr="2">Jesús Duarte</Text>
+                        <Text color={!data.darkMode ? "black" : 'white'} mr="2">{data.user ? data.user.name : "Login"}</Text>
                     </Link>
                 </NextLink>
+                {!data.user ? null : <Text color={!data.darkMode ? "black" : 'white'} onClick={logoutHandler} mr="2" as="button">logout</Text>}
                 <Box mr="2" >
-                    <CgProfile size={50} />
+                    {!data.user 
+                    ? <CgProfile size={50} /> 
+                    : <Avatar name={data.user.name} src={data.user.avatarUrl} />}
                 </Box>
             </Flex>
             <SideMenu isOpen={isOpen} btnRef={btnRef} onClose={onClose}/>

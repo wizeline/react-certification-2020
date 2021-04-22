@@ -4,7 +4,10 @@ import reducer from "./DataReducer";
 const DataContext = createContext({
     videos: [],
     darkMode: false,
-    search: ""
+    search: "",
+    favorites: [],
+    player: "",
+    user: ""
 })
 
 function useData() {
@@ -16,7 +19,7 @@ function useData() {
 }
 
 function DataProvider({ children }) {
-    const [data, dispatch] = useReducer(reducer,{videos: [], darkMode: false, search: ""})
+    const [data, dispatch] = useReducer(reducer,{videos: [], darkMode: false, search: "", favorites: [], player: "", user: ""})
     return (
         <DataContext.Provider value={{data, dispatch}}>
             { children }

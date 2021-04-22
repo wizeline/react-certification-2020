@@ -1,10 +1,13 @@
 import { Image } from '@chakra-ui/image'
 import { Badge, Box } from '@chakra-ui/layout'
 import { useRouter } from "next/router"
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useData } from '../../state/DataProvider'
 
-const Card = ({item}) => {
+const Card = ({item, favorite}) => {
+    const {data, dispatch} = useData()
     const router = useRouter();
+    let objDispatch = {}
     const property = {
         videoId: item.id.videoId,
         imageUrl: item.snippet.thumbnails.high.url,
@@ -15,11 +18,21 @@ const Card = ({item}) => {
       }
 
     const videoHandler = () => {
-        console.log(property)
-        router.push({
-            pathname: "/videoPlayer",
-            query: property
+        console.log("item: ",item)
+        dispatch({
+            type: "CHANGE_PLAYER",
+            payload: item
         })
+        if (favorite) {
+            router.push({
+                pathname: "/favoriteVideoPlayer"
+            })
+        } else {
+            router.push({
+                pathname: "/videoPlayer"
+            })
+        }
+        
     }
     
     return (
