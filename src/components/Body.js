@@ -14,7 +14,7 @@ margin-top: 0px;
     font-family: sans-serif;    
     @media (min-width: 600px){
       margin-bottom: 25px;
-      margin-top: 0px;
+      margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     font-size: 70px;
@@ -27,19 +27,16 @@ margin-top: 0px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
     opacity: 10;
-  
-  
  
     `;
 
     export const VideoItems = styled.div`
     flex: ${props => props.ratio};
     height: 400px;
- 
   border-radius: 5px;
   border: 1px solid #ddd;
   margin: 10px;
@@ -49,14 +46,24 @@ margin-top: 0px;
     `;
 
     export const Parag = styled.div`
-    margin-top: 12px;
+    margin-top: 70px;
   font-size: 18px;
-  
+  white-space: pre-line;
   text-align: left;
   font-family: sans-serif;
+  word-break: break-all;
+  white-space: pre-line;
+  text-align-last: left;
+}
   
+    `;
 
-  
+    export const ImgBox = styled.div`
+    display: block;
+    
+   width: 300px;
+    height: 100px;
+    
     `;
     export const IMG = styled.img`
     display: block;
@@ -66,20 +73,22 @@ margin-top: 0px;
     background-size: contain;  
     `;
     export const TitleVideo = styled.p`
-    font-size: 22px;
+    font-size: 20px;
   font-weight: bold;
-  
+  padding: 10px;
+  text-align-last: left;
+  }
   
     `;
 
     export const Secondary = styled.p`
-    font-size: 18px;
- 
+    font-size: 16px;
   overflow:hidden;
+  padding: px;
   
   @media (min-width: 600px){
   
-  white-space: pre-line;}
+  }
     `;
     
    

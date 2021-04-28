@@ -1,40 +1,69 @@
 import React, {useState, useContext}from "react";
-import {VideoItems, Parag, TitleVideo, Secondary, IMG} from './components/Body.js';
+import {VideoItems, Parag, TitleVideo, Secondary, IMG, ImgBox} from './components/Body.js';
 import Player from "./videoplayer.jsx";
 import { useHistory  } from "react-router-dom";
+import SearchContext from './GlobalVars/SearchContext';
 //import ThemeContext  from '../src/ThemeContext';
 
-function VideoItem({title, description,url,videoId, setTitles, setVideoList,searchResults}) {
-    
-    //const [results, setResults] = React.useState([]);
-   // const {darkMode} = useContext(ThemeContext);
+function VideoItem({title, description,url,videoId, setTitles,searchResults}) {
 
-    // const themeStyles = {
-    //     backgroundColor: darkMode ? '#333' : 'white',
-    //     color: darkMode ? '#CCC' : '#333'
-    // }
-
+    const {videoList,setVideoList} = useContext(SearchContext);
+   
       let history = useHistory();
       function  handleLogin(event) {
-        history.push(`/${videoId}`);
-        console.log(title);
-        console.log(setTitles({title : title,
-            description: description,
-            videoId: videoId,
-            }));
-            setVideoList(searchResults);
+        
+        
+            if(!document.URL.toString().includes("favorite"))
+            {
+                console.log("abraham normal "+searchResults);
+                history.push(`/${videoId}`);
+                console.log(title);
+                console.log(setTitles({title : title,
+                    description: description,
+                    videoId: videoId,
+                    url: url
+                    }));
+               
+                 
+
+            }else{
+
+                history.push(`/favorite/${videoId}`);
+
+
+                
+                var myArray = [];
+                Object.entries(localStorage).map(([key,value]) => {
+
+                    if((key !="session"  )){
+                    var elementJson = JSON.parse(value);
+                    myArray.push(elementJson);
+                    }
+                }
+                    
+                    
+
+                );
+                setVideoList(myArray);
+                console.log(setTitles({title : title,
+                    description: description,
+                    videoId: videoId,
+                    url: url
+                    }));
+
         }
+    }
     
 
     return (
        
         <VideoItems  onClick={handleLogin} >
-            <div>
-            <IMG src={url} alt="video"/>
-            </div>
+            <ImgBox>
+                <IMG src={url} alt="video"/>
+            </ImgBox>
             <Parag >
-            <TitleVideo>{title}</TitleVideo>
-            <Secondary>{description}</Secondary>
+                <TitleVideo>{title}</TitleVideo>
+                <Secondary>{description}</Secondary>
             </Parag>
             
         </VideoItems>

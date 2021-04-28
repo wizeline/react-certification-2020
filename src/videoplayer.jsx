@@ -1,28 +1,27 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Video, VideoPlayer,DescriptionBox, VideoDescription, VideoTitle, PlayBox } from './components/VideoPlayer.js';
+import SearchContext from './GlobalVars/SearchContext';
+import ButtonAddRemFavorite from './ButtonAddRemFavorite';
 
+function Player(){
 
-
-function Player({title, description, videoId,videoList}){
-      
-
-    return (
-        
+    const {titles} = useContext(SearchContext);
+    
+    
+    
+    return (   
         
             <Video>
                 <PlayBox>
-                <VideoPlayer src={`https://www.youtube.com//embed/${videoId}`}/>  
-                </PlayBox>
-                             
+                <VideoPlayer src={`https://www.youtube.com//embed/${titles.videoId}`}/>  
+                </PlayBox>          
                 <DescriptionBox>
-                    <VideoTitle>{title}</VideoTitle>
-                    <VideoDescription>{description}</VideoDescription>
+                <ButtonAddRemFavorite />
+                    <VideoTitle>{titles.title}</VideoTitle>
+                    <VideoDescription>{titles.description}</VideoDescription> 
                 </DescriptionBox>
-            </Video>
-            
                 
-
-        
+            </Video>        
        
     )
 };

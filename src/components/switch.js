@@ -3,7 +3,7 @@ import Context from "../components/Context";
 import styled from "styled-components";
 
 const Container = styled.label`
-right: 20px;
+right: 10px;
 margin:20px 200px 0px 0px;
 position:absolute;
 
@@ -22,8 +22,8 @@ const Slider = styled.span`
   cursor: pointer;
   background-color: grey;
   width: 50%;
-  height: 130%;
- 
+  height: 140%;
+ top:-5px;
   border-radius: 30px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -49,7 +49,7 @@ const Input = styled.input`
   
 
   &:checked + ${Slider} {
-    background-color: #2196f3;
+    background-color: #4b5d67;
   }
 
   &:checked + ${Slider}::before {
@@ -60,7 +60,7 @@ const Input = styled.input`
   }
 
   &:focus + ${Slider} {
-    box-shadow: 0 0 1px #219666f3;
+    box-shadow: 0 0 1px #black;
   }
 `;
 
