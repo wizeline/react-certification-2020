@@ -9,34 +9,37 @@ import SearchContext from './GlobalVars/SearchContext';
 function Body() {
 
     const [searchTerm] = React.useState("");
-    // Descomentar API const [searchResults, setSearchResults] = React.useState([]);
-    const [searchResults, setSearchResults] = React.useState(videos.items);
+    // Descomentar API const
+    const [searchResults, setSearchResults] = React.useState([]);
+    //const [searchResults, setSearchResults] = React.useState(videos.items);
     const {valueFinal} = useContext(SearchContext);
     const { setTitles, setVideoList } = useContext(SearchContext);
 
 
 
 React.useEffect(() => {
+  const fetch = require("node-fetch");
  
-  //   fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAagMd1O7wZpIZF3qw6MFbDKe9PbRgxwpA&part=snippet&maxResults=2&q=${valueFinal}`)
-  //   .then((response) => response.json())
-  //   .then((json) => {
-  //     setSearchResults(json.items) ;
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //  });
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAagMd1O7wZpIZF3qw6MFbDKe9PbRgxwpA&part=snippet&maxResults=20&q=${valueFinal}`)
+    .then((response) => response.json())
+    .then((json) => {
+      setSearchResults(json.items) ;
+    })
+    .catch((error) => {
+      console.error(error);
+   });
   
-  //  let results = videos.items;
-  //  setVideoList(results);
+   let results = videos.items;
+   setVideoList(results);
+   setSearchResults(results);
   
-  // }, [valueFinal]);
+  }, [valueFinal]);
 
-  let results = videos.items;
-    setVideoList(results);
-    setSearchResults(results);
+  // let results = videos.items;
+  //   setVideoList(results);
+  //   setSearchResults(results);
   
-   }, [valueFinal]);
+  //  }, [valueFinal]);
 
 
   

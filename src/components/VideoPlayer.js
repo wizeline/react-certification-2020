@@ -45,7 +45,7 @@ export const VideoTitle = styled.h1`
 
 export const VideoDescription = styled.p`
 
-margin-top: 40px;
+margin-top: 55px;
 font-size: 18px;
 text-align: left;
 font-family: sans-serif;
@@ -90,7 +90,7 @@ export const IMG = styled.img`
   display: block;
 `;
 export const TitleBox = styled.div`
-margin-top:-25px; 
+margin-top:-15px; 
 margin-left: auto; 
 margin-right: 0;
 width:75%;
@@ -109,10 +109,9 @@ overflow-wrap: break-word;
 
 `;
 export const FavoriteButton= styled.button`
-padding: 5;
-border: ;
+padding: 5px;
 width: 200px;
-top: 45px;
+top: 75px;
 position: relative;
 left: 75%;
 background: transparent;

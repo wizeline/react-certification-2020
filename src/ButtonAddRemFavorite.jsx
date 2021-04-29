@@ -1,12 +1,12 @@
-import { FavoriteButton, ButtonLabel } from "./components/VideoPlayer.js";
+import { FavoriteButton } from "./components/VideoPlayer.js";
 import React, { useState, useEffect, useContext } from "react";
 import SearchContext from "./GlobalVars/SearchContext";
-import CreateArray from "./functions/ArrayList";
+
 
 function ButtonAddRemFavorite() {
   const { titles, setTitles } = useContext(SearchContext);
   const [labelState, setLabelState] = useState("");
-  const {videoList,setVideoList} = useContext(SearchContext);
+  const {setVideoList} = useContext(SearchContext);
  
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function ButtonAddRemFavorite() {
             var myArray = [];
                 Object.entries(localStorage).map(([key,value]) => {
 
-                    if((key !="session"  )){
+                    if((key !== "session"  )){
                     var elementJson = JSON.parse(value);
                     myArray.push(elementJson);
                     }

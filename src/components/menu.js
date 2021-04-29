@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useHistory } from "react-router-dom";
 
-import { useReducer } from 'react';
 
 function Menu() {
   

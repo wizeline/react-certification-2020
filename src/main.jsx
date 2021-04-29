@@ -1,7 +1,7 @@
 import React, { useReducer, useState} from 'react';
 import Header from './header.jsx';
 import Body from './body.jsx';
-import './styled/HomeView.css';
+//import './styled/HomeView.css';
 import { BrowserRouter , Route, Switch } from "react-router-dom";
 import PlayerBody from './PlayerBody.jsx';
 import {Container} from './components/HomePage.js';

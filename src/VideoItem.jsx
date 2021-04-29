@@ -15,14 +15,15 @@ function VideoItem({title, description,url,videoId, setTitles,searchResults}) {
         
             if(!document.URL.toString().includes("favorite"))
             {
-                console.log("abraham normal "+searchResults);
+                
                 history.push(`/${videoId}`);
-                console.log(title);
+                
                 console.log(setTitles({title : title,
                     description: description,
                     videoId: videoId,
                     url: url
                     }));
+                    setVideoList(searchResults);
                
                  
 
