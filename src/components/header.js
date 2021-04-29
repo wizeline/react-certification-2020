@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Head = styled.head`
-background: #0c819c;
 color: white;
 margin: 0;
 height: auto;
@@ -18,12 +17,12 @@ height: auto;
 
 export const Input = styled.input`
     float:left;
-    results="0"
+    z-index: -1px; 
     alignItems: "stretch",
     background-image: url('images/microphone.png'),
     background-repeat: no-repeat,
     background-position: right,
-    display: "flex",
+    display: "absolute",
     flex-wrap: wrap;
     border: none;
     background-color: #074b3d;

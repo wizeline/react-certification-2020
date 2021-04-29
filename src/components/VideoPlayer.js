@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-border: 10px ;
-display: static;
-margin-top: 0px;
+padding: 10px;
 overflow: hidden;
+
+
 `;
 
 export const Video = styled.div`
@@ -12,9 +12,8 @@ border: 10px ;
 border: 10px;
 padding 5px;
 border-radius: 5px;
-position:relative;
+
     @media (min-width: 600px){
-     
       max-width: 60%;
       height: 800px;  }
     
@@ -28,7 +27,7 @@ height: 500px;
 `;
 
 export const VideoPlayer = styled.iframe`
-position: relative;  
+
 width: 100%;
 height: 500px;
 `;
@@ -38,15 +37,15 @@ export const DescriptionBox = styled.div`
 `;
 
 export const VideoTitle = styled.h1`
-    font-size: 22px;
+  font-size: 22px;
   font-weight: bold;
-  position:relative;
+  word-wrap: break-word;
  
 `;
 
 export const VideoDescription = styled.p`
-position:relative;
-margin-top: 12px;
+
+margin-top: 55px;
 font-size: 18px;
 text-align: left;
 font-family: sans-serif;
@@ -57,9 +56,9 @@ border: 10px;
 padding 5px;
 position:relative;
 top: -810px;  
-left: 61%;
+float: right;
 height: 800px;
-width: 38%;  
+width: 39%;  
   overflow-x: hidden;
   @media (min-width: 600px){}
 `;
@@ -76,33 +75,54 @@ width: 100px;
 `;
 
 export const VideoItems = styled.div`
-height: -80px;
-
+top: 15px;
 border-style: outset;
+position: static;
+
+`;
+
+export const Image = styled.div`
+width:20%;
 `;
 export const IMG = styled.img`
-  position:absolute;
-  letf:0;
-    
-    
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
 `;
-export const Parag = styled.div`
-left:130px;
-font-size: 18px;
+export const TitleBox = styled.div`
+margin-top:-15px; 
+margin-left: auto; 
+margin-right: 0;
+width:75%;
+overflow-wrap: break-word;
 
-height: 100px;
-top: -15px;
-width: 80%;
-position:relative;
-text-align-last: left;
-
-
-
+max-width: 100%;
+max-height: 100%;
 `;
-export const TitleVideo = styled.p`
+
+export const TitleVideo = styled.h1`
 font-size: 16px;
 font-weight: bold;
 font-family: Arial, Helvetica, sans-serif;
-  
+text-align: ;
+overflow-wrap: break-word;
 
+`;
+export const FavoriteButton= styled.button`
+padding: 5px;
+width: 200px;
+top: 75px;
+position: relative;
+left: 75%;
+background: transparent;
+`;
+
+export const ButtonLabel = styled.span`
+
+width: 200px;
+top: 15px;
+position: absolute;
+left: 75%;
+text-color:black;
+text-size:200px;
 `;
