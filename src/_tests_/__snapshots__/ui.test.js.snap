@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly text component 1`] = `
+.c1 {
+  border-radius: 999999px;
+  height: 45px;
+  z-index: -1;
+  background: transparent;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .5rem .5rem;
+  float: left;
+  padding: .5em;
+  margin: .4em;
+}
+
+.c3 {
+  width: 20px;
+  height: 3px;
+  background: white;
+  margin: 3px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.c0:hover .c2 {
+  background-color: #536162;
+  opacity: .7;
+}
+
+@media (min-width:600px) {
+  .c1 {
+    width: 5%;
+  }
+}
+
+<div
+  className="c0 c1"
+  onClick={[Function]}
+  type="button"
+>
+  <i>
+    <div
+      className="c2 c3"
+    />
+    <div
+      className="c2 c3"
+    />
+    <div
+      className="c2 c3"
+    />
+  </i>
+</div>
+`;
