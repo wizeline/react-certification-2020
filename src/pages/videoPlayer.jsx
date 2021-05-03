@@ -12,7 +12,7 @@ const videoPlayer = () => {
         <Flex>
             <Video/>
             <Box w="sm">
-                <CardList list={true} IdVid={data.player.id.videoId} />
+                {data.player.id.videoId ? <CardList list={true} IdVid={data.player.id.videoId} /> : null}
             </Box>
         </Flex>
             
