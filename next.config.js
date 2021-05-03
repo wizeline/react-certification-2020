@@ -7,7 +7,8 @@ module.exports = {
                 module: 'empty',
                 worker_threads: 'empty',
                 inspector: 'empty',
-                net: 'empty'
+                net: 'empty',
+                child_process: 'empty'
             }
         }
 
