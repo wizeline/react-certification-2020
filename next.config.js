@@ -6,7 +6,8 @@ module.exports = {
                 fs: 'empty',
                 module: 'empty',
                 worker_threads: 'empty',
-                inspector: 'empty'
+                inspector: 'empty',
+                net: 'empty'
             }
         }
 
