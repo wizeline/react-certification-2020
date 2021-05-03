@@ -4,7 +4,8 @@ module.exports = {
         if (!isServer) {
             config.node = {
                 fs: 'empty',
-                module: 'empty'
+                module: 'empty',
+                worker_threads: 'empty'
             }
         }
 
