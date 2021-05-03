@@ -1,31 +1,37 @@
 import "@testing-library/jest-dom/extend-expect"
 import { render, screen, cleanup, waitFor } from "@testing-library/react"
-import fetchData from "../../utils/useFetchData"
 import CardList from "./CardList"
-const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+import fetchData from '../../utils/useFetchData'
+import dotenv from 'dotenv'
+import axios from "axios"
+dotenv.config()
 
 describe('Testing CardList', () => {
-    afterEach(cleanup)
-    it('Testing data result from API', async () => {
-        const result = await fetchData.get("/search")
-        expect(Object.keys(result).length).not.toBe(0);
+    it('fetchData all videos', async (done) => {
+        const res = await axios.get('https://www.googleapis.com/youtube/v3/search',{
+            params: {
+                part: 'snippet',
+                maxResults: 15,
+                key: process.env.API_KEY,
+                type: 'video',
+            }
+        })
+        expect(res.status).toBe(200)
+        done()
     });
-    
-    it('Testing data result from API with params', async () => {
-        const result = await fetchData.get("/search", {params: {q: "hola"}})
-        expect(Object.keys(result).length).not.toBe(0)
-    });
-    
-    it('CardList Component', async () => {
 
-        useRouter.mockImplementationOnce(() => ({
-            query: { search: '' },
-          }))
-
-        
-        const { container } = render(<CardList/>)
-        expect(container).toMatchSnapshot()
-
+    it('fetchData realated videos', async (done) => {
+        const res = await axios.get('https://www.googleapis.com/youtube/v3/search',{
+            params: {
+                part: 'snippet',
+                maxResults: 15,
+                key: process.env.API_KEY,
+                type: 'video',
+                q: "hola"
+            }
+        })
+        expect(res.status).toBe(200)
+        done()
     });
     
     
