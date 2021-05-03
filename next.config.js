@@ -5,7 +5,8 @@ module.exports = {
             config.node = {
                 fs: 'empty',
                 module: 'empty',
-                worker_threads: 'empty'
+                worker_threads: 'empty',
+                inspector: 'empty'
             }
         }
 
