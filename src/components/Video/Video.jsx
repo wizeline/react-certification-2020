@@ -10,7 +10,7 @@ const Video = () => {
     const [fav, setFav] = useState(false)
     console.log("fav: ",data.favorites.includes(data.player) )
 
-    const videoSrc = `https://www.youtube.com/embed/${data.player.id.videoId}`;
+    const videoSrc = `https://www.youtube.com/embed/${data.player !== '' ? data.player.id.videoId : ''}`;
 
     const favoriteHandler = () => {
         if (fav) {
@@ -47,7 +47,7 @@ const Video = () => {
             lineHeight="tight"
             isTruncated
             >
-                {data.player.snippet.title}
+                {data.player !== '' ? data.player.snippet.title : ''}
                 {fav ? 
                 <Button onClick={favoriteHandler} ml="5">
                     <Text>Remove Favorite</Text>
@@ -63,7 +63,7 @@ const Video = () => {
                 
             </Flex>
             <Box ml="3" as="span" color="gray.600" fontSize="sm">
-                {data.player.snippet.description}
+                {data.player !== '' ? data.player.snippet.description : ''}
             </Box>
         </Box>
     )
