@@ -1,13 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import { WelcomeSection, VideosList } from './Home.styles';
+import videosListJSON from '../../mock.json';
 
 function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
+  const [videosList, setVideosList] = useState([]);
 
   function deAuthenticate(event) {
     event.preventDefault();
@@ -15,12 +16,31 @@ function HomePage() {
     history.push('/');
   }
 
+  useEffect(() => {
+    setVideosList(videosListJSON.items);
+  });
+
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
+    <div ref={sectionRef}>
+      <WelcomeSection>
+        <h1>Welcome to the challenge!</h1>
+      </WelcomeSection>
+      <VideosList>
+        {videosList.map((video) => {
+          return (
+            <div>
+              <img src={video.snippet.thumbnails} alt="VideoImage" />
+              <h3>{video.snippet.title} :</h3>
+              <p>{video.snippet.description}</p>
+            </div>
+          );
+        })}
+      </VideosList>
       {authenticated ? (
         <>
-          <h2>Good to have you back</h2>
+          <WelcomeSection>
+            <h1>Good to have you back!</h1>
+          </WelcomeSection>
           <span>
             <Link to="/" onClick={deAuthenticate}>
               ← logout
@@ -32,7 +52,7 @@ function HomePage() {
       ) : (
         <Link to="/login">let me in →</Link>
       )}
-    </section>
+    </div>
   );
 }
 

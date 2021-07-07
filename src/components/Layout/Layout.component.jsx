@@ -1,9 +1,8 @@
 import React from 'react';
-
-import './Layout.styles.css';
+import { LayoutGeneral } from './Layout.Style';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  return <LayoutGeneral>{children}</LayoutGeneral>;
 }
 
 export default Layout;
